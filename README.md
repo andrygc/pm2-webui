@@ -39,11 +39,11 @@ npm run start:dev
 
 ##### SCREENSHOTS
 ![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
-![PM2 Webui Dashboard Dark](/screenshots/dekstop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
-![PM2 Webui App Dark](/screenshots/dektop-app-dark.png?raw=true "PM2 WebUI App Dark")
+![PM2 Webui Dashboard Dark](/screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
+![PM2 Webui App Dark](/screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
 ![PM2 Webui Login Light](/screenshots/desktop-login-light.png?raw=true "PM2 WebUI Login Light")
-![PM2 Webui Dashboard Light](/screenshots/dekstop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
-![PM2 Webui App Light](/screenshots/dektop-app-light.png?raw=true "PM2 WebUI App Light")
+![PM2 Webui Dashboard Light](/screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
+![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
 ##### LICENSE
 MIT - Copyright (c) 2024 Andry Cardoza
