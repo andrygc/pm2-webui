@@ -49,18 +49,18 @@ npm run start:dev
 
 
 ## SUGERENCIAS
-- [ ] support for relative paths
-- [ ] use fs-extra for filesystem operations
-- [ ] use [jsonfile](https://www.npmjs.com/package/jsonfile) for config management
-- [ ] replace exec.util with [execa](https://www.npmjs.com/package/execa)
-- [ ] add form based env management
-- [ ] add realtime logs
-- [ ] add log viewer for deployments
-- [ ] add deployment abort functionality
-- [ ] add deployment triggers
-- [ ] add web terminal
-- [ ] add zero downtime deployment strategies - blue-green, rolling etc
-- [ ] add docker provider*
+- [ ] Agregar soporte para rutas relativas
+- [ ] Utilice fs-extra para operaciones del sistema de archivos
+- [ ] Utilice [jsonfile](https://www.npmjs.com/package/jsonfile) para la gestión de configuración
+- [ ] Reemplace exec.util con [execa](https://www.npmjs.com/package/execa)
+- [ ] Agregar gestión de entorno basada en formularios
+- [ ] Agregar registros en tiempo real
+- [ ] Agregar visor de registros para implementaciones
+- [ ] Agregar funcionalidad para cancelar la implementación
+- [ ] Agregar activadores de implementación
+- [ ] Agregar terminal web
+- [ ] Agregue estrategias de implementación con tiempo de inactividad cero: azul-verde, continua, etc.
+- [ ] Agregar proveedor de Docker
 
 
 ## SCREENSHOTS
