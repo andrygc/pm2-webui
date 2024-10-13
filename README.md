@@ -1,28 +1,39 @@
-<p align="center">
-    <img src="https://github.com/andrygc/pm2-webui/src/public/dist/images/app/logo.png" height="130">
-</p>
-
-
 # PM2 WebUI
-Opensource Alternative to PM2 Plus
+Alternativa opensource PM2 Plus
 
 
-## FEATURES
-- Secure Login :white_check_mark:
-- App Management :white_check_mark:
-- Log Viewer :white_check_mark:
-- Responsive UI :white_check_mark:
-- Manual and Auto(Github webhooks) Deployment
-- Environment Management
+## CARACTERÍSTICAS
+- Login seguro :white_check_mark:
+- Administración de los procesos :white_check_mark:
+- Vista de logs :white_check_mark:
+- Interfaz responsiva :white_check_mark:
+- Información sobre el repositorio :white_check_mark:
+- Administración de variables de entorno :white_check_mark:
 
 
-## USAGE
+## DESPLIEGUE
+1. Clonar el repositorio
 ```bash
 git clone https://github.com/andrygc/pm2-webui.git
+```
+2. Acceder al repositorio descargado
+```bash
 cd pm2-webui
+```
+3. Instalar las dependencias
+```bash
 npm install
+```
+4. Crear el archivo `.env`
+```bash
 cp env.example .env
-npm run setup-admin-user (Required for login)
+```
+5. Configurar el usuario y contraseña
+```bash
+npm run setup-admin-user
+```
+6. Iniciar el proyecto
+```bash
 npm start
 ```
 
@@ -31,13 +42,13 @@ npm start
 > *Cambiar el FQDN/IP donde se esté ejecutando el proyecto, ubicado en la linea 4 del archivo `src/config/index.js`* :wink:
 
 
-## FOR DEVELOPMENT USE
+## PARA USO EN DESARROLLO
 ```bash
 npm run start:dev
 ```
 
 
-## TODO
+## SUGERENCIAS
 - [ ] support for relative paths
 - [ ] use fs-extra for filesystem operations
 - [ ] use [jsonfile](https://www.npmjs.com/package/jsonfile) for config management
@@ -61,15 +72,15 @@ npm run start:dev
 ![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
 
-## Licencia
+## LICENCIA
 [MIT Copyright (c) 2024 Andry Noilien Guzmán Cardoza](https://github.com/andrygc/agario-deluxe/blob/main/LICENSE)
 
 
-## Autor
+## AUTOR
 - [@andrygc](https://www.github.com/andrygc)
 
 
-## 🔗 Enlaces del autor
+## 🔗 ENLACES DEL AUTOR
 [![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/andrynolien)
 [![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/andrycardoza)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andry-cardoza)
