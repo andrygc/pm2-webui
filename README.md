@@ -1,9 +1,11 @@
 <p align="center">
-    <img src="https://github.com/andrygc/pm2-webui/wrc/public/dist/images/app/logo.png" height="130">
+    <img src="https://github.com/andrygc/pm2-webui/src/public/dist/images/app/logo.png" height="130">
 </p>
+
 
 # PM2 WebUI
 Opensource Alternative to PM2 Plus
+
 
 ## FEATURES
 - Secure Login :white_check_mark:
@@ -13,8 +15,9 @@ Opensource Alternative to PM2 Plus
 - Manual and Auto(Github webhooks) Deployment
 - Environment Management
 
+
 ## USAGE
-```
+```bash
 git clone https://github.com/andrygc/pm2-webui.git
 cd pm2-webui
 npm install
@@ -22,13 +25,17 @@ cp env.example .env
 npm run setup-admin-user (Required for login)
 npm start
 ```
+
+
 > [!NOTE]
-> *Cambiar el FQDN/IP donde esten levantando ejecutando el proyecto ubicado en la linea 4 del archivo del archivo src/config/index.js :wink:
+> *Cambiar el FQDN/IP donde se esté ejecutando el proyecto, ubicado en la linea 4 del archivo `src/config/index.js`* :wink:
+
 
 ## FOR DEVELOPMENT USE
-```
+```bash
 npm run start:dev
 ```
+
 
 ## TODO
 - [ ] support for relative paths
@@ -43,6 +50,7 @@ npm run start:dev
 - [ ] add web terminal
 - [ ] add zero downtime deployment strategies - blue-green, rolling etc
 - [ ] add docker provider*
+
 
 ## SCREENSHOTS
 ![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
