@@ -1,0 +1,250 @@
+<!-- start page dashboard -->
+<div class="page-wrapper">
+    <!-- Page header -->
+    <div class="page-header d-print-none">
+        <div class="container-xl">
+            <div class="row g-2 align-items-center">
+                <div class="col">
+                    <!-- Page pre-title -->
+                    <div class="page-pretitle">
+                        Overview
+                    </div>
+                    <h2 class="page-title">
+                        Process List
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="col-md-12">
+                <div class="row row-cards">
+                    <div class="space-y">
+                        <% apps.forEach(function (app) {%>
+                        <div class="card card-stacked">
+                            <div class="row g-0">
+                                <div class="col-auto">
+                                    <div class="card-body">
+                                        <div class="avatar avatar-xl">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-brand-nodejs">
+                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M9 9v8.044a2 2 0 0 1 -2.996 1.734l-1.568 -.9a3 3 0 0 1 -1.436 -2.561v-6.635a3 3 0 0 1 1.436 -2.56l6 -3.667a3 3 0 0 1 3.128 0l6 3.667a3 3 0 0 1 1.436 2.561v6.634a3 3 0 0 1 -1.436 2.56l-6 3.667a3 3 0 0 1 -3.128 0" />
+                                                <path d="M17 9h-3.5a1.5 1.5 0 0 0 0 3h2a1.5 1.5 0 0 1 0 3h-3.5" />
+                                            </svg>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="card-body ps-0">
+                                        <div class="row">
+                                            <div class="col">
+                                                <h3 class="mb-0">
+                                                    <a href="/apps/<%= app.name %>">
+                                                        <h2 class="page-title">
+                                                            <svg class="icon icon-tabler icon-tabler-box" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                                </path>
+                                                                <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3">
+                                                                </polyline>
+                                                                <line x1="12" x2="20" y1="12" y2="7.5">
+                                                                </line>
+                                                                <line x1="12" x2="12" y1="12" y2="21">
+                                                                </line>
+                                                                <line x1="12" x2="4" y1="12" y2="7.5">
+                                                                </line>
+                                                            </svg>
+                                                            <%= app.name %>
+                                                        </h2>
+                                                    </a>
+                                                </h3>
+                                            </div>
+                                            <div class="col-auto fs-2">
+                                                <% if(app.status === "online"){ %>
+                                                <span class="status-indicator status-green status-indicator-animated">
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                </span>
+                                                <% } else if(app.status === "launching" || app.status === "on-launch-status"){ %>
+                                                <span class="status-indicator status-yellow status-indicator-animated">
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                </span>
+                                                <% } else{ %>
+                                                <span class="status-indicator status-red status-indicator-animated">
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                    <span class="status-indicator-circle">
+                                                    </span>
+                                                </span>
+                                                <% } %>
+                                            </div>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-md">
+                                                <div class="mt-3 list-inline list-inline-dots mb-0 text-secondary d-sm-block d-none">
+                                                    <div class="list-inline-item">
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/license -->
+                                                        <svg class="icon icon-tabler icons-tabler-outline icon-tabler-cpu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                            </path>
+                                                            <path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z">
+                                                            </path>
+                                                            <path d="M9 9h6v6h-6z">
+                                                            </path>
+                                                            <path d="M3 10h2">
+                                                            </path>
+                                                            <path d="M3 14h2">
+                                                            </path>
+                                                            <path d="M10 3v2">
+                                                            </path>
+                                                            <path d="M14 3v2">
+                                                            </path>
+                                                            <path d="M21 10h-2">
+                                                            </path>
+                                                            <path d="M21 14h-2">
+                                                            </path>
+                                                            <path d="M14 21v-2">
+                                                            </path>
+                                                            <path d="M10 21v-2">
+                                                            </path>
+                                                        </svg>
+                                                        CPU :
+                                                        <%= app.cpu %> %
+                                                    </div>
+                                                    <div class="list-inline-item">
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/map-pin -->
+                                                        <svg class="icon icon-tabler icon-tabler-device-desktop-analytics" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                            </path>
+                                                            <rect height="12" rx="1" width="18" x="3" y="4">
+                                                            </rect>
+                                                            <path d="M7 20h10">
+                                                            </path>
+                                                            <path d="M9 16v4">
+                                                            </path>
+                                                            <path d="M15 16v4">
+                                                            </path>
+                                                            <path d="M9 12v-4">
+                                                            </path>
+                                                            <path d="M12 12v-1">
+                                                            </path>
+                                                            <path d="M15 12v-2">
+                                                            </path>
+                                                            <path d="M12 12v-1">
+                                                            </path>
+                                                        </svg>
+                                                        Memory :
+                                                        <%= app.memory %>
+                                                    </div>
+                                                    <div class="list-inline-item">
+                                                        <!-- Download SVG icon from http://tabler-icons.io/i/map-pin -->
+                                                        <svg class="icon icon-tabler icon-tabler-calendar-time" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                            </path>
+                                                            <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+                                                            </path>
+                                                            <circle cx="18" cy="18" r="4">
+                                                            </circle>
+                                                            <path d="M15 3v4">
+                                                            </path>
+                                                            <path d="M7 3v4">
+                                                            </path>
+                                                            <path d="M3 11h16">
+                                                            </path>
+                                                            <path d="M18 16.496v1.504l1 1">
+                                                            </path>
+                                                        </svg>
+                                                        Uptime :
+                                                        <%= app.uptime %>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-md-auto">
+                                                <div class="mt-3 badges">
+                                                    <% if(app.status === "online"){ %>
+                                                    <button class="badge bg-azure-lt" onclick="pm2AppAction('<%= app.name %>', 'reload')">
+                                                        <span>
+                                                            <svg class="icon icon-tabler icons-tabler-outline icon-tabler-reload" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                                </path>
+                                                                <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747">
+                                                                </path>
+                                                                <path d="M20 4v5h-5">
+                                                                </path>
+                                                            </svg>
+                                                            Reload
+                                                        </span>
+                                                    </button>
+                                                    <button class="badge bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
+                                                        <span>
+                                                            <svg class="icon icon-tabler icons-tabler-outline icon-tabler-refresh" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                                </path>
+                                                                <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4">
+                                                                </path>
+                                                                <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4">
+                                                                </path>
+                                                            </svg>
+                                                            Restart
+                                                        </span>
+                                                    </button>
+                                                    <button class="badge bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'stop')">
+                                                        <span>
+                                                            <svg class="icon icon-tabler icons-tabler-outline icon-tabler-player-stop" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                                </path>
+                                                                <path d="M5 5m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z">
+                                                                </path>
+                                                            </svg>
+                                                            Stop
+                                                        </span>
+                                                    </button>
+                                                    <% } else{ %>
+                                                    <button class="badge bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
+                                                        <span>
+                                                            <svg class="icon icon-tabler icons-tabler-outline icon-tabler-player-play" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                                <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                                </path>
+                                                                <path d="M7 4v16l13 -8z">
+                                                                </path>
+                                                            </svg>
+                                                            Start
+                                                        </span>
+                                                    </button>
+                                                    <% } %>
+                                                    <button class="badge bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'delete')">
+                                                        <span>
+                                                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon icon-tabler icons-tabler-outline icon-tabler-minus">
+                                                                <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                                <path d="M5 12l14 0" />
+                                                            </svg>
+                                                            Delete
+                                                        </span>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% })%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- end page dashboard -->

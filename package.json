@@ -1,0 +1,41 @@
+{
+  "name": "pm2-webui",
+  "version": "2.0.1",
+  "description": "PM2 WebUI Dashboard",
+  "main": "src/server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "pm2 start src/server.js --name pm2-webui-service --namespace monitoring",
+    "start:dev": "npx nodemon",
+    "setup-admin-user": "node src/bin/setup-admin-user"
+  },
+  "keywords": [],
+  "author": "Andry Cardoza",
+  "license": "MIT",
+  "dependencies": {
+    "@koa/router": "^10.0.0",
+    "ansi-to-html": "^0.6.14",
+    "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
+    "envfile": "^6.17.0",
+    "event-stream": "^4.0.1",
+    "koa": "^2.13.1",
+    "koa-body": "^4.2.0",
+    "koa-ejs": "^4.3.0",
+    "koa-session": "^6.2.0",
+    "koa-static": "^5.0.0",
+    "koa2-ratelimit": "^0.9.1",
+    "pm2": "^5.4.2",
+    "prompts": "^2.4.2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/andrygc/pm2-webui"
+  },
+  "bin": {
+    "pm2-webui": "./src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.15"
+  }
+}

@@ -1,0 +1,1084 @@
+<!-- start page app -->
+<div class="page-wrapper">
+    <div class="page-header d-print-none">
+        <div class="container">
+            <div class="row g-3 align-items-center">
+                <div class="col-auto">
+                    <% if(app.status === "online"){ %>
+                    <span class="status-indicator status-green status-indicator-animated">
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                    </span>
+                    <% } else if(app.status === "launching" || app.status === "on-launch-status"){ %>
+                    <span class="status-indicator status-yellow status-indicator-animated">
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                    </span>
+                    <% } else{ %>
+                    <span class="status-indicator status-red status-indicator-animated">
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                        <span class="status-indicator-circle">
+                        </span>
+                    </span>
+                    <% } %>
+                </div>
+                <div class="col">
+                    <h2 class="page-title">
+                        <%= app.name %>
+                    </h2>
+                    <div class="text-secondary">
+                        <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item">
+                                Status
+                            </li>
+                            <li class="list-inline-item">
+                                <% if(app.status === "online"){ %>
+                                <span class="text-green">
+                                    <%= app.status %>
+                                </span>
+                                <% } else if(app.status === "launching" || app.status === "on-launch-status") { %>
+                                <span class="text-yellow">
+                                    <%= app.status %>
+                                </span>
+                                <% } else { %>
+                                <span class="text-red">
+                                    <%= app.status %>
+                                </span>
+                                <% } %>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <!-- start "actions buttons" -->
+                <div class="col-md-auto ms-auto d-print-none">
+                    <div class="btn-list">
+                        <% if(app.status === "online"){ %>
+                        <button class="btn btn-info btn-pill bg-azure-lt" onclick="pm2AppAction('<%= app.name %>', 'reload')">
+                            <span>
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-reload" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M19.933 13.041a8 8 0 1 1 -9.925 -8.788c3.899 -1 7.935 1.007 9.425 4.747">
+                                    </path>
+                                    <path d="M20 4v5h-5">
+                                    </path>
+                                </svg>
+                                Reload
+                            </span>
+                        </button>
+                        <button class="btn btn-success btn-pill bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
+                            <span>
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-refresh" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4">
+                                    </path>
+                                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4">
+                                    </path>
+                                </svg>
+                                Restart
+                            </span>
+                        </button>
+                        <button class="btn btn-danger btn-pill bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'stop')">
+                            <span>
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-player-stop" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 5m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z">
+                                    </path>
+                                </svg>
+                                Stop
+                            </span>
+                        </button>
+                        <% } else{ %>
+                        <button class="btn btn-success btn-pill bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
+                            <span>
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-player-play" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M7 4v16l13 -8z">
+                                    </path>
+                                </svg>
+                                Start
+                            </span>
+                        </button>
+                        <% } %>
+                        <button class="btn btn-danger btn-pill bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'delete')">
+                            <span>
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-minus" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 12l14 0">
+                                    </path>
+                                </svg>
+                                Delete
+                            </span>
+                        </button>
+                    </div>
+                </div>
+                <!-- end "actions buttons" -->
+            </div>
+        </div>
+    </div>
+    <!-- Page body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="row row-cards">
+                <div class="col-12">
+                    <div class="row row-cards">
+                        <!-- start "process id" -->
+                        <div class="col-md-6">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/currency-dollar -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-number" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M4 17v-10l7 10v-10">
+                                                    </path>
+                                                    <path d="M15 17h5">
+                                                    </path>
+                                                    <path d="M17.5 10m-2.5 0a2.5 3 0 1 0 5 0a2.5 3 0 1 0 -5 0">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                PROCESS ID
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.pm_id %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "process id" -->
+                        <!-- start "version" -->
+                        <div class="col-md-6">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-stack-2" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M12 4l-8 4l8 4l8 -4l-8 -4">
+                                                    </path>
+                                                    <path d="M4 12l8 4l8 -4">
+                                                    </path>
+                                                    <path d="M4 16l8 4l8 -4">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                VERSION
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.version %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "version" -->
+                        <!-- start "mode" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-database-cog" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M4 6c0 1.657 3.582 3 8 3s8 -1.343 8 -3s-3.582 -3 -8 -3s-8 1.343 -8 3">
+                                                    </path>
+                                                    <path d="M4 6v6c0 1.657 3.582 3 8 3c.21 0 .42 -.003 .626 -.01">
+                                                    </path>
+                                                    <path d="M20 11.5v-5.5">
+                                                    </path>
+                                                    <path d="M4 12v6c0 1.657 3.582 3 8 3">
+                                                    </path>
+                                                    <path d="M19.001 19m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0">
+                                                    </path>
+                                                    <path d="M19.001 15.5v1.5">
+                                                    </path>
+                                                    <path d="M19.001 21v1.5">
+                                                    </path>
+                                                    <path d="M22.032 17.25l-1.299 .75">
+                                                    </path>
+                                                    <path d="M17.27 20l-1.3 .75">
+                                                    </path>
+                                                    <path d="M15.97 17.25l1.3 .75">
+                                                    </path>
+                                                    <path d="M20.733 20l1.3 .75">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                MODE
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.exec_mode %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "mode" -->
+                        <!-- start "namespace" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-assembly" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M19.875 6.27a2.225 2.225 0 0 1 1.125 1.948v7.284c0 .809 -.443 1.555 -1.158 1.948l-6.75 4.27a2.269 2.269 0 0 1 -2.184 0l-6.75 -4.27a2.225 2.225 0 0 1 -1.158 -1.948v-7.285c0 -.809 .443 -1.554 1.158 -1.947l6.75 -3.98a2.33 2.33 0 0 1 2.25 0l6.75 3.98h-.033z">
+                                                    </path>
+                                                    <path d="M15.5 9.422c.312 .18 .503 .515 .5 .876v3.277c0 .364 -.197 .7 -.515 .877l-3 1.922a1 1 0 0 1 -.97 0l-3 -1.922a1 1 0 0 1 -.515 -.876v-3.278c0 -.364 .197 -.7 .514 -.877l3 -1.79c.311 -.174 .69 -.174 1 0l3 1.79h-.014z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                NAMESPACE
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.namespace %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "namespace" -->
+                        <!-- start "watch" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-recharging" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M7.038 4.5a9 9 0 0 0 -2.495 2.47">
+                                                    </path>
+                                                    <path d="M3.186 10.209a9 9 0 0 0 0 3.508">
+                                                    </path>
+                                                    <path d="M4.5 16.962a9 9 0 0 0 2.47 2.495">
+                                                    </path>
+                                                    <path d="M10.209 20.814a9 9 0 0 0 3.5 0">
+                                                    </path>
+                                                    <path d="M16.962 19.5a9 9 0 0 0 2.495 -2.47">
+                                                    </path>
+                                                    <path d="M20.814 13.791a9 9 0 0 0 0 -3.508">
+                                                    </path>
+                                                    <path d="M19.5 7.038a9 9 0 0 0 -2.47 -2.495">
+                                                    </path>
+                                                    <path d="M13.791 3.186a9 9 0 0 0 -3.508 -.02">
+                                                    </path>
+                                                    <path d="M12 8l-2 4h4l-2 4">
+                                                    </path>
+                                                    <path d="M12 21a9 9 0 0 0 0 -18">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                WATCH
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.watch %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "watch" -->
+                        <!-- start "cpu usage" -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/shopping-cart -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-cpu" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M5 5m0 1a1 1 0 0 1 1 -1h12a1 1 0 0 1 1 1v12a1 1 0 0 1 -1 1h-12a1 1 0 0 1 -1 -1z">
+                                                    </path>
+                                                    <path d="M9 9h6v6h-6z">
+                                                    </path>
+                                                    <path d="M3 10h2">
+                                                    </path>
+                                                    <path d="M3 14h2">
+                                                    </path>
+                                                    <path d="M10 3v2">
+                                                    </path>
+                                                    <path d="M14 3v2">
+                                                    </path>
+                                                    <path d="M21 10h-2">
+                                                    </path>
+                                                    <path d="M21 14h-2">
+                                                    </path>
+                                                    <path d="M14 21v-2">
+                                                    </path>
+                                                    <path d="M10 21v-2">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                CPU USAGE
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.cpu %> %
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "cpu usage" -->
+                        <!-- start "memory usage" -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                                <svg class="icon icon-tabler icon-tabler-device-desktop-analytics" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <rect height="12" rx="1" width="18" x="3" y="4">
+                                                    </rect>
+                                                    <path d="M7 20h10">
+                                                    </path>
+                                                    <path d="M9 16v4">
+                                                    </path>
+                                                    <path d="M15 16v4">
+                                                    </path>
+                                                    <path d="M9 12v-4">
+                                                    </path>
+                                                    <path d="M12 12v-1">
+                                                    </path>
+                                                    <path d="M15 12v-2">
+                                                    </path>
+                                                    <path d="M12 12v-1">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                MEMORY USAGE
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.memory %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "memory usage" -->
+                        <!-- start "pid" -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-subtask" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M6 9l6 0">
+                                                    </path>
+                                                    <path d="M4 5l4 0">
+                                                    </path>
+                                                    <path d="M6 5v11a1 1 0 0 0 1 1h5">
+                                                    </path>
+                                                    <path d="M12 7m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z">
+                                                    </path>
+                                                    <path d="M12 15m0 1a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1v2a1 1 0 0 1 -1 1h-6a1 1 0 0 1 -1 -1z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                PID
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.pid %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "pid" -->
+                        <!-- start "restart time" -->
+                        <div class="col-sm-6 col-lg-3">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-twitter -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-history" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M12 8l0 4l2 2">
+                                                    </path>
+                                                    <path d="M3.05 11a9 9 0 1 1 .5 4m-.5 5v-5h5">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                RESTARTS
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.restarts %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "restart time" -->
+                        <!-- start "uptime" -->
+                        <div class="col-md-6">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icon-tabler-calendar-time" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4">
+                                                    </path>
+                                                    <circle cx="18" cy="18" r="4">
+                                                    </circle>
+                                                    <path d="M15 3v4">
+                                                    </path>
+                                                    <path d="M7 3v4">
+                                                    </path>
+                                                    <path d="M3 11h16">
+                                                    </path>
+                                                    <path d="M18 16.496v1.504l1 1">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                UPTIME
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.uptime %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "uptime" -->
+                        <!-- start "total uptime" -->
+                        <div class="col-md-6">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-clock-play" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M12 7v5l2 2">
+                                                    </path>
+                                                    <path d="M17 22l5 -3l-5 -3z">
+                                                    </path>
+                                                    <path d="M13.017 20.943a9 9 0 1 1 7.831 -7.292">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                CREATE AT
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.created_at %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "total uptime" -->
+                        <!-- start "directory  of process" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-folder-symlink" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M3 21v-4a3 3 0 0 1 3 -3h5">
+                                                    </path>
+                                                    <path d="M8 17l3 -3l-3 -3">
+                                                    </path>
+                                                    <path d="M3 11v-5a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                DIRECTORY OF PROCESS
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.pm2_env_cwd %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "directory  of process" -->
+                        <!-- start "path of the script" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-folder-symlink" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M3 21v-4a3 3 0 0 1 3 -3h5">
+                                                    </path>
+                                                    <path d="M8 17l3 -3l-3 -3">
+                                                    </path>
+                                                    <path d="M3 11v-5a2 2 0 0 1 2 -2h4l3 3h7a2 2 0 0 1 2 2v8a2 2 0 0 1 -2 2h-8">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                PATH OF THE SCRIPT
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.pm_exec_path %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "path of the script" -->
+                        <!-- start "interpreter" -->
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-terminal-2" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M8 9l3 3l-3 3">
+                                                    </path>
+                                                    <path d="M13 15l3 0">
+                                                    </path>
+                                                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                INTERPRETER
+                                            </div>
+                                            <div class="text-secondary">
+                                                <%= app.exec_interpreter %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- end "interpreter" -->
+                        <!-- start "git repo url" -->
+                        <% if(app.git_url){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-network" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M6 9a6 6 0 1 0 12 0a6 6 0 0 0 -12 0">
+                                                    </path>
+                                                    <path d="M12 3c1.333 .333 2 2.333 2 6s-.667 5.667 -2 6">
+                                                    </path>
+                                                    <path d="M12 3c-1.333 .333 -2 2.333 -2 6s.667 5.667 2 6">
+                                                    </path>
+                                                    <path d="M6 9h12">
+                                                    </path>
+                                                    <path d="M3 20h7">
+                                                    </path>
+                                                    <path d="M14 20h7">
+                                                    </path>
+                                                    <path d="M10 20a2 2 0 1 0 4 0a2 2 0 0 0 -4 0">
+                                                    </path>
+                                                    <path d="M12 15v3">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                GIT REPO
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_url %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git repo url" -->
+                        <!-- start "git username" -->
+                        <% if(app.git_username){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-user" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M8 7a4 4 0 1 0 8 0a4 4 0 0 0 -8 0">
+                                                    </path>
+                                                    <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                GIT USER
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_username %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git username" -->
+                        <!-- start "git user email" -->
+                        <% if(app.git_useremail){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-mail" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M3 7a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-10z">
+                                                    </path>
+                                                    <path d="M3 7l9 6l9 -6">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                GIT EMAIL
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_useremail %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git user email" -->
+                        <!-- start "git branch" -->
+                        <% if(app.git_branch){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icon-tabler-git-branch" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <circle cx="7" cy="18" r="2">
+                                                    </circle>
+                                                    <circle cx="7" cy="6" r="2">
+                                                    </circle>
+                                                    <circle cx="17" cy="6" r="2">
+                                                    </circle>
+                                                    <line x1="7" x2="7" y1="8" y2="16">
+                                                    </line>
+                                                    <path d="M9 18h6a2 2 0 0 0 2 -2v-5">
+                                                    </path>
+                                                    <polyline points="14 14 17 11 20 14">
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                GIT BRANCH
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_branch %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git branch" -->
+                        <!-- start "git commit" -->
+                        <% if(app.git_commit){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icon-tabler-git-commit" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <circle cx="12" cy="12" r="3">
+                                                    </circle>
+                                                    <line x1="12" x2="12" y1="3" y2="9">
+                                                    </line>
+                                                    <line x1="12" x2="12" y1="15" y2="21">
+                                                    </line>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                GIT COMMIT
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_commit %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git commit" -->
+                        <!-- start ".env file" -->
+                        <% if(app.env_file){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-file-settings" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <path d="M12 14m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0">
+                                                    </path>
+                                                    <path d="M12 10.5v1.5">
+                                                    </path>
+                                                    <path d="M12 16v1.5">
+                                                    </path>
+                                                    <path d="M15.031 12.25l-1.299 .75">
+                                                    </path>
+                                                    <path d="M10.268 15l-1.3 .75">
+                                                    </path>
+                                                    <path d="M15 15.803l-1.285 -.773">
+                                                    </path>
+                                                    <path d="M10.285 12.97l-1.285 -.773">
+                                                    </path>
+                                                    <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                                    </path>
+                                                    <path d="M17 21h-10a2 2 0 0 1 -2 -2v-14a2 2 0 0 1 2 -2h7l5 5v11a2 2 0 0 1 -2 2z">
+                                                    </path>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                .ENV FILE
+                                            </div>
+                                            <button class="btn btn-sm btn-white" data-bs-target="#env-file" data-bs-toggle="modal" href="#">
+                                                View File
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end ".env file" -->
+                        <!-- end -->
+                    </div>
+                </div>
+                <!-- start "logs" -->
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-header">
+                            <ul class="nav nav-tabs card-header-tabs" data-bs-toggle="tabs" role="tablist">
+                                <li class="nav-item" role="presentation">
+                                    <a aria-selected="false" class="nav-link active" data-bs-toggle="tab" href="#stdout" role="tab" tabindex="-1">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/home -->
+                                        <svg class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-txt" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                            </path>
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                            </path>
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                            </path>
+                                            <path d="M16.5 15h3">
+                                            </path>
+                                            <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4">
+                                            </path>
+                                            <path d="M4.5 15h3">
+                                            </path>
+                                            <path d="M6 15v6">
+                                            </path>
+                                            <path d="M18 15v6">
+                                            </path>
+                                            <path d="M10 15l4 6">
+                                            </path>
+                                            <path d="M10 21l4 -6">
+                                            </path>
+                                        </svg>
+                                        Status Logs
+                                    </a>
+                                </li>
+                                <li class="nav-item" role="presentation">
+                                    <a aria-selected="false" class="nav-link" data-bs-toggle="tab" href="#stderr" role="tab" tabindex="-1">
+                                        <!-- Download SVG icon from http://tabler-icons.io/i/user -->
+                                        <svg class="icon icon-tabler icons-tabler-outline icon-tabler-file-type-txt" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                            </path>
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                            </path>
+                                            <path d="M14 3v4a1 1 0 0 0 1 1h4">
+                                            </path>
+                                            <path d="M16.5 15h3">
+                                            </path>
+                                            <path d="M5 12v-7a2 2 0 0 1 2 -2h7l5 5v4">
+                                            </path>
+                                            <path d="M4.5 15h3">
+                                            </path>
+                                            <path d="M6 15v6">
+                                            </path>
+                                            <path d="M18 15v6">
+                                            </path>
+                                            <path d="M10 15l4 6">
+                                            </path>
+                                            <path d="M10 21l4 -6">
+                                            </path>
+                                        </svg>
+                                        Errors Logs
+                                    </a>
+                                </li>
+                                <li class="nav-item ms-auto" role="presentation">
+                                    <button class="btn btn-icon btn-sm" onclick="nextLogs()" style="border:none !important;">
+                                        <svg class="icon icon-tabler icons-tabler-outline icon-tabler-player-skip-forward" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                            </path>
+                                            <path d="M4 5v14l12 -7z">
+                                            </path>
+                                            <path d="M20 5l0 14">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                    <button class="btn btn-icon btn-sm" onclick="refreshLogs()" style="border:none !important;">
+                                        <svg class="icon icon-tabler icon-tabler-refresh" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                            </path>
+                                            <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -4v4h4">
+                                            </path>
+                                            <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4">
+                                            </path>
+                                        </svg>
+                                    </button>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="card-body">
+                            <div class="tab-content">
+                                <div class="tab-pane active" data-next-key="<%= logs.stdout.nextKey %>" id="stdout">
+                                    <code class="bg-dark" style="display:block; overflow-y:scroll; max-height:50vh !important; max-height:75vh !important; min-width:100%;">
+                                        <%- logs.stdout.lines %>
+                                    </code>
+                                </div>
+                                <div class="tab-pane" data-next-key="<%= logs.stderr.nextKey %>" id="stderr">
+                                    <code class="bg-dark" style="display:block; overflow-y:scroll; max-height:50vh !important; max-height:75vh !important; min-width:100%;">
+                                        <%- logs.stderr.lines %>
+                                    </code>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- end "logs" -->
+            </div>
+            <!-- sart "modal .env" -->
+            <div aria-hidden="true" class="modal modal-blur fade" id="env-file" style="display: none;" tabindex="-1">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title">
+                                <%= app.name %> [.env]
+                            </h5>
+                            <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <% if(app.env_file){ %>
+                            <pre><code class="language-plaintext"><%= app.env_file %></code></pre>
+                            <% } %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end "modal .env" -->
+        </div>
+    </div>
+</div>
+<!-- Tabler Core -->
+<script src="/dist/js/tabler.min.js?1692870487">
+</script>
+<script src="/dist/js/prism.js">
+</script>
+<script>
+    function getActiveTabData() {
+    const data = {
+        log_type: $('.tab-pane.active').attr('id'),
+        next_key: $('.tab-pane.active').attr('data-next-key')
+    };
+    return data
+}
+
+
+async function fetchLogs(log_type, next_key) {
+    const response = await fetch(`/api/apps/<%= app.name %>/logs/${log_type}${next_key?`?nextKey=${next_key}`: ''}`)
+    const data = await response.json()
+    if (data && data.logs) {
+        return data.logs
+    }
+    return null
+}
+
+function setLogsData(log_type, logs, action) {
+    $(`#${log_type}`).attr('data-next-key', logs.nextKey)
+    if (action === 'refresh') {
+        $(`#${log_type} code`).html(logs.lines)
+    } else if (action === 'append') {
+        $(`#${log_type} code`).append('<br/>' + logs.lines)
+    } else if (action === 'prepend') {
+        $(`#${log_type} code`).prepend(logs.lines + '<br/>')
+    }
+}
+
+async function refreshLogs() {
+    const { log_type } = getActiveTabData()
+    const logs = await fetchLogs(log_type)
+    if (logs) {
+        setLogsData(log_type, logs, 'refresh')
+    } else {
+        console.log('Unable to fetch logs')
+    }
+}
+
+async function nextLogs() {
+    const { log_type, next_key } = getActiveTabData()
+    if (parseInt(next_key) < 0) {
+        console.log('End of Logs')
+    } else {
+        const logs = await fetchLogs(log_type, next_key)
+        if (logs) {
+            setLogsData(log_type, logs, 'prepend')
+        } else {
+            console.log('Unable to fetch logs')
+        }
+    }
+}
+</script>
+<!-- end page app -->
