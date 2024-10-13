@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="https://github.com/andrygc/pm2-webui/tree/master/src/public/dist/images/app/logo.png" height="130">
+    <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
 </p>
 
 # PM2 WebUI
