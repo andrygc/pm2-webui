@@ -1,3 +1,7 @@
+<p align="center">
+    <img src="https://github.com/andrygc/pm2-webui/tree/master/src/public/dist/images/app/logo.png" height="130">
+</p>
+
 # PM2 WebUI
 Alternativa opensource PM2 Plus
 
