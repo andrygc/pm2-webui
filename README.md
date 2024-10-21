@@ -15,6 +15,7 @@ Alternativa opensource PM2 Plus
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
 - Vista de logs :white_check_mark:
+- Terminal web (cliente ssh) :white_check_mark:
 - Interfaz responsiva :white_check_mark:
 - Información sobre el repositorio :white_check_mark:
 - Administración de variables de entorno :white_check_mark:
@@ -37,7 +38,7 @@ npm install
 ```bash
 cp env.example .env
 ```
-5. Configurar el usuario y contraseña
+5. Configurar variables del sistema
 ```bash
 npm run setup-system
 ```
@@ -48,7 +49,7 @@ npm start
 
 
 > [!NOTE]
-> *Para el uso de la terminal se ejecuta un websocket conun ciente ssh, todos los parametros se configuran ejecuando el comando `npm run setup-system`* :wink:
+> *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parametros se configuran ejecutando el comando `npm run setup-system`* :wink:
 
 
 ## PARA USO EN DESARROLLO
@@ -67,7 +68,6 @@ npm run start:dev
 - [ ] Agregar visor de registros para implementaciones
 - [ ] Agregar funcionalidad para cancelar la implementación
 - [ ] Agregar activadores de implementación
-- [ ] Agregar terminal web
 - [ ] Agregue estrategias de implementación con tiempo de inactividad cero: azul-verde, continua, etc.
 - [ ] Agregar proveedor de Docker
 
