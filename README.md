@@ -1,18 +1,15 @@
 <p align="center">
-    <img src="https://github.com/andrygc/pm2-webui/tree/master/src/public/dist/images/app/logo.png" height="130">
+    <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
 </p>
 
 
 # PM2 WebUI
 Alternativa opensource de PM2 Plus
-<p align="center">
-    <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
-</p>
+
 
 # PM2 WebUI
 Alternativa opensource PM2 Plus
 
->>>>>>> aa3ffbfc2287ee35c6137fdea9eacc2b914a1687
 
 ## CARACTERÍSTICAS
 - Login seguro :white_check_mark:
@@ -42,7 +39,7 @@ cp env.example .env
 ```
 5. Configurar el usuario y contraseña
 ```bash
-npm run setup-admin-user
+npm run setup-system
 ```
 6. Iniciar el proyecto
 ```bash
@@ -51,7 +48,7 @@ npm start
 
 
 > [!NOTE]
-> *Cambiar el FQDN/IP donde se esté ejecutando el proyecto, ubicado en la linea 4 del archivo `src/config/index.js`* :wink:
+> *Para el uso de la terminal se ejecuta un websocket conun ciente ssh, todos los parametros se configuran ejecuando el comando `npm run setup-system`* :wink:
 
 
 ## PARA USO EN DESARROLLO
