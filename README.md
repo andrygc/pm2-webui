@@ -4,10 +4,6 @@
 
 
 # PM2 WebUI
-Alternativa opensource de PM2 Plus
-
-
-# PM2 WebUI
 Alternativa opensource PM2 Plus
 
 
