@@ -3,6 +3,7 @@
 const config = require('./config')
 const { setEnvDataSync } = require('./utils/env.util')
 const { generateRandomString } = require('./utils/random.util')
+const Logger = require('./utils/logger.util')
 const path = require('path');
 const serve = require('koa-static');
 const render = require('koa-ejs');
@@ -10,10 +11,53 @@ const koaBody = require('koa-body');
 const session = require('koa-session');
 const Koa = require('koa');
 
-// Init Application
+// WebSocket & SSH
+const WebSocket = require('ws');
+const { Client } = require('ssh2');
 
-if(!config.APP_USERNAME || !config.APP_PASSWORD){
-    console.log("You must first setup admin user. Run command -> npm run setup-admin-user")
+// Init WebSocket
+if(!config.WS_PORT) {
+    Logger.error("Check the WS_PORT variable in the .env file, if not run the command -> npm run setup-system")
+    process.exit(2)
+}
+
+const wss = new WebSocket.Server({ port: config.WS_PORT });
+
+wss.on('connection', (ws) => {
+    const conn = new Client();
+    conn.on('ready', () => {
+        ws.send('Client SSH started\n');
+        conn.shell((err, stream) => {
+            if (err) return ws.send('Error: ' + err.message + '\n');
+
+            stream.on('data', (data) => {
+                ws.send(data.toString());
+            });
+
+            stream.on('close', () => {
+                conn.end();
+                ws.close();
+            });
+
+            ws.on('message', (message) => {
+                stream.write(message);
+            });
+
+            ws.on('close', () => {
+                stream.end();
+            });
+        });
+    }).connect({
+        host: config.SSH_HOST,
+        port: 22,
+        username: config.SSH_USERNAME,
+        password: config.SSH_PASSWORD
+    });    
+});
+
+// Init Application
+if(!config.APP_USERNAME || !config.APP_PASSWORD) {
+    Logger.info("You must first setup admin user. Run command -> npm run setup-system")
     process.exit(2)
 }
 
@@ -49,6 +93,7 @@ render(app, {
     debug: false
 });
 
-app.listen(config.PORT, config.HOST, ()=>{
-    console.log(`${config.APP_NAME} started at http://${config.HOST}:${config.PORT}`)
+app.listen(config.APP_PORT, config.APP_HOST, () => {
+    Logger.success(`${config.APP_NAME} started on http://${config.APP_HOST}:${config.APP_PORT}/`);
+    Logger.success(`Client SSH listening on ws://${config.APP_HOST}:${config.WS_PORT}`);
 })

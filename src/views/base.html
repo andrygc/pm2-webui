@@ -21,13 +21,13 @@
     <script src="/dist/js/jquery-3.4.1.min.js">
     </script>
     <!-- CSS files -->
-    <link href="/dist/css/tabler.min.css?1692870487" rel="stylesheet" />
-    <link href="/dist/css/demo.min.css?1692870487" rel="stylesheet" />
-    <style>
-        #base {
-            display: none;
-        }
-    </style>
+    <link href="/dist/css/tabler.min.css" rel="stylesheet" />
+    <link href="/dist/css/tabler-flags.min.css" rel="stylesheet" />
+    <link href="/dist/css/demo.min.css" rel="stylesheet" />
+    <!-- Terminal -->
+    <link href="/xterm/css/xterm.css" rel="stylesheet" />
+    <script src="/xterm/lib/xterm.js">
+    </script>
 </head>
 
 <body>
@@ -36,9 +36,12 @@
             <div class="container container-slim py-4">
                 <div class="text-center">
                     <div class="mb-3">
-                        <img class="navbar-brand navbar-brand-autodark" src="/dist/images/app/logo.png" height="36" alt="">
+                        <img alt="" class="navbar-brand navbar-brand-autodark" height="36" src="/dist/images/app/logo.png">
+                        </img>
                     </div>
-                    <div class="text-secondary mb-3">Loading data. Please wait...</div>
+                    <div class="text-secondary mb-3" data-translate="loading_data_please_wait">
+                        Loading data. Please wait...
+                    </div>
                     <div class="progress progress-sm">
                         <div class="progress-bar progress-bar-indeterminate"></div>
                     </div>
@@ -46,9 +49,8 @@
             </div>
         </div>
     </div>
-    <script src="/dist/js/demo-theme.min.js?1692870487">
-    </script>
-    <div class="page" id="base">
+    <script src="/dist/js/demo-theme.min.js"></script>
+    <div class="page" id="base" style="display: none">
         <!-- Navbar -->
         <header class="navbar navbar-expand-md">
             <div class="container-xl">
@@ -63,6 +65,28 @@
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
+                    <div class="nav-item d-none d-md-flex me-3">
+                        <div class="btn-list">
+                            <button class="btn" data-bs-target="#license" data-bs-toggle="modal">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
+                                <svg class="icon text-pink" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M7 20l10 0">
+                                    </path>
+                                    <path d="M6 6l6 -1l6 1">
+                                    </path>
+                                    <path d="M12 3l0 17">
+                                    </path>
+                                    <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                    <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                </svg>
+                                <span data-translate="license">License</span>
+                            </button>
+                        </div>
+                    </div>
                     <div class="nav-item dropdown">
                         <a aria-label="Open user menu" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" href="#">
                             <span class="avatar avatar-sm" style="background-image: url(/dist/images/app/administrator.jpg)">
@@ -71,20 +95,54 @@
                                 <div>
                                     Andry N.
                                 </div>
-                                <div class="mt-1 small text-secondary">
+                                <div class="mt-1 small text-secondary" data-translate="administrator">
                                     Administrator
                                 </div>
                             </div>
                         </a>
                         <div class="dropdown-menu dropdown-menu-end dropdown-menu-arrow">
                             <a class="dropdown-item hide-theme-dark" data-bs-placement="left" data-bs-toggle="tooltip" href="?theme=dark" title="Enable dark mode">
-                                Dark Mode
+                                <svg class="icon" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313 -12.454z">
+                                    </path>
+                                </svg>
+                                &nbsp; <span data-translate="dark_mode">Dark Mode</span>
                             </a>
                             <a class="dropdown-item hide-theme-light" data-bs-placement="left" data-bs-toggle="tooltip" href="?theme=light" title="Enable light mode">
-                                Light Mode
+                                <svg class="icon" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M12 12m-4 0a4 4 0 1 0 8 0a4 4 0 1 0 -8 0">
+                                    </path>
+                                    <path d="M3 12h1m8 -9v1m8 8h1m-9 8v1m-6.4 -15.4l.7 .7m12.1 -.7l-.7 .7m0 11.4l.7 .7m-12.1 -.7l-.7 .7">
+                                    </path>
+                                </svg>
+                                &nbsp; <span data-translate="light_mode">Light Mode</span>
+                            </a>
+                            <a class="dropdown-item" href="/terminal" data-bs-placement="left" data-bs-toggle="tooltip" title="Open the terminal">
+                                <svg class="icon icon-tabler icons-tabler-outline icon-tabler-terminal-2" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M8 9l3 3l-3 3">
+                                    </path>
+                                    <path d="M13 15l3 0">
+                                    </path>
+                                    <path d="M3 4m0 2a2 2 0 0 1 2 -2h14a2 2 0 0 1 2 2v12a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2z">
+                                    </path>
+                                </svg>
+                                </svg>
+                                &nbsp; <span data-translate="terminal">Terminal</span>
                             </a>
                             <a class="dropdown-item" href="/logout">
-                                Logout
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M14 8v-2a2 2 0 0 0 -2 -2h-7a2 2 0 0 0 -2 2v12a2 2 0 0 0 2 2h7a2 2 0 0 0 2 -2v-2" />
+                                    <path d="M9 12h12l-3 -3" />
+                                    <path d="M18 15l3 -3" />
+                                </svg>
+                                &nbsp; <span data-translate="logout">Logout</span>
                             </a>
                         </div>
                     </div>
@@ -94,14 +152,163 @@
         <!-- body -->
         <%- body %>
         <!-- body -->
+        <!-- sart "modal license" -->
+        <div aria-hidden="true" class="modal modal-blur fade" id="license" style="display: none;" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-body">
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button">
+                        </button>
+                        <div class="d-flex align-items-center mb-3">
+                            <div class="me-3">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/scale -->
+                                <svg class="icon icon-md" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M7 20l10 0">
+                                    </path>
+                                    <path d="M6 6l6 -1l6 1">
+                                    </path>
+                                    <path d="M12 3l0 17">
+                                    </path>
+                                    <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                    <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                </svg>
+                            </div>
+                            <div>
+                                <small class="text-secondary">
+                                    <span data-translate="lic_project_under">PM2 WebUI is licensed under the</span>
+                                </small>
+                                <h3 class="lh-1">
+                                    <span data-translate="lic_type">MIT License</span>
+                                </h3>
+                            </div>
+                        </div>
+                        <div class="text-secondary mb-3" data-translate="lic_description">
+                            A short and simple permissive license with conditions only requiring preservation of copyright and
+                            license notices. Licensed works, modifications, and larger works may be distributed under different terms
+                            and without source code.
+                        </div>
+                        <h4>
+                            <span data-translate="lic_permissions">Permissions</span>
+                        </h4>
+                        <ul class="list-unstyled space-y-1">
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                <svg class="icon text-green" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 12l5 5l10 -10">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_comercial_use">Commercial use</span>
+                            </li>
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                <svg class="icon text-green" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 12l5 5l10 -10">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_modification">Modification</span>
+                            </li>
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                <svg class="icon text-green" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 12l5 5l10 -10">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_distribution">Distribution</span>
+                            </li>
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                                <svg class="icon text-green" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M5 12l5 5l10 -10">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_private_use">Private use</span>
+                            </li>
+                        </ul>
+                        <h4>
+                            <span data-translate="lic_limiations">Limitations</span>
+                        </h4>
+                        <ul class="list-unstyled space-y-1">
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                <svg class="icon text-red" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M18 6l-12 12">
+                                    </path>
+                                    <path d="M6 6l12 12">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_liability">Liability</span>
+                            </li>
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/x -->
+                                <svg class="icon text-red" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M18 6l-12 12">
+                                    </path>
+                                    <path d="M6 6l12 12">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_warranty"> Warranty</span>
+                            </li>
+                        </ul>
+                        <h4>
+                            <span data-translate="lic_conditions">Conditions</span>
+                        </h4>
+                        <ul class="list-unstyled space-y-1">
+                            <li>
+                                <!-- Download SVG icon from http://tabler-icons.io/i/info-circle -->
+                                <svg class="icon text-blue" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M3 12a9 9 0 1 0 18 0a9 9 0 0 0 -18 0">
+                                    </path>
+                                    <path d="M12 9h.01">
+                                    </path>
+                                    <path d="M11 12h1v4h1">
+                                    </path>
+                                </svg>
+                                <span data-translate="lic_copyright">License and copyright notice</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end "modal license" -->
+        <!-- start footer -->
         <footer class="footer footer-transparent d-print-none">
             <div class="container-xl">
                 <div class="row text-center align-items-center flex-row-reverse">
                     <div class="col-lg-auto ms-lg-auto">
                         <ul class="list-inline list-inline-dots mb-0">
+                            <li class="list-inline-item dropdown">
+                                <button class="btn dropdown-toogle" id="language-selector" data-bs-toggle="dropdown" style="border: none; width: 33px; height: 25px; background: transparent; margin-top: -3px;"></button>
+                                <div class="dropdown-menu">
+                                    <a class="dropdown-item lang" data-lang="us"><span class="flag flag-xs flag-country-us"></span> &nbsp;English</a>
+                                    <a class="dropdown-item lang" data-lang="es"><span class="flag flag-xs flag-country-es"></span> &nbsp;Español</a>
+                                    <a class="dropdown-item lang" data-lang="fr"><span class="flag flag-xs flag-country-fr"></span> &nbsp;Français</a>
+                                    <a class="dropdown-item lang" data-lang="it"><span class="flag flag-xs flag-country-it"></span> &nbsp;Italiano</a>
+                                    <a class="dropdown-item lang" data-lang="pt"><span class="flag flag-xs flag-country-pt"></span> &nbsp;Português</a>
+                                    <a class="dropdown-item lang" data-lang="ru"><span class="flag flag-xs flag-country-ru"></span> &nbsp;Русский</a>
+                                </div>
+                            </li>
                             <li class="list-inline-item">
                                 <span class="badge bg-teal-lt">
-                                    v2.0.1
+                                    v2.0.4
                                 </span>
                             </li>
                         </ul>
@@ -109,25 +316,30 @@
                     <div class="col-12 col-lg-auto mt-3 mt-lg-0">
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
-                                Copyright © 2024
+                                <span data-translate="copyright">Copyright © 2024</span>
                                 <a class="link-secondary" href=".">
-                                    PM2 WebUI
+                                    <span data-translate="sitename">PM2 WebUI</span>
                                 </a>
-                                . All Rights Reserved.
+                                <span data-translate="rights">. All Rights Reserved.</span>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
         </footer>
+        <!-- end footer -->
     </div>
     <!-- Libs JS -->
     <!-- Tabler Core -->
     <script src="/dist/js/main.js">
     </script>
-    <script src="/dist/js/tabler.min.js?1692870487">
+    <script src="/dist/js/tabler.min.js">
     </script>
-    <script src="/dist/js/demo.min.js?1692870487">
+    <script src="/dist/js/demo.min.js">
+    </script>
+    <script src="/dist/js/prism.js">
+    </script>
+    <script src="/dist/js/translate.js">
     </script>
     <script>
     // Función para manejar el preloader
@@ -139,14 +351,20 @@
 
         // Esperar 5 segundos antes de ocultar el preloader
         window.onload = function() {
-            setTimeout(hidePreloader, 5000);
+            setTimeout(hidePreloader, 3000);
         }
     }
 
     // Llamar a la función para manejar el preloader
     handlePreloader();
     </script>
-    </script>
+    <!-- <script type="text/javascript">
+            setTimeout(() => {
+                $(document).ready(function() {
+                    $("#changelog").modal('show');
+                })
+            }, 10000);
+        </script> -->
 </body>
 
 </html>

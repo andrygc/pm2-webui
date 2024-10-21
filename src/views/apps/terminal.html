@@ -1,0 +1,37 @@
+<div class="page-wrapper">
+    <!-- Page Body -->
+    <div class="page-body">
+        <div class="container-xl">
+            <div class="card card-stacked">
+                <div class="card-body">
+                    <h3>
+                        <span data-translate="terminal">Terminal</span>
+                        <span class="form-help" data-bs-content="This terminal is only for administrative use, be very careful with the commands you run.</p><p class='mb-0'><a href='#'>Terms & Conditions of Use</a></p>" data-bs-html="true" data-bs-placement="bottom" data-bs-toggle="popover" style="float:right;">
+                            ?
+                        </span>
+                    </h3>
+                    <div id="terminal"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const terminal = new Terminal({ cursorBlink: true });
+    terminal.open(document.getElementById('terminal'));
+    terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\n');
+
+    const ws = new WebSocket('ws://localhost:8080');
+
+    ws.onopen = () => {
+        terminal.write('Connecting...\n');
+    };
+
+    ws.onmessage = (event) => {
+        terminal.write(event.data);
+    };
+
+    terminal.onData((data) => {
+        ws.send(data);
+    });
+</script>

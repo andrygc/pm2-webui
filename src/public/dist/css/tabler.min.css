@@ -8,6 +8,14 @@
 */
 @charset "UTF-8";
 
+@font-face {
+    font-family: 'Saira-Regular';
+    src: url('../fonts/saira/Saira-Regular.ttf');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+  }
+
 :root,
 [data-bs-theme=light] {
     --tblr-blue: #0054a6;
@@ -131,7 +139,7 @@
     --tblr-dark-border-subtle: #929dab;
     --tblr-white-rgb: 255, 255, 255;
     --tblr-black-rgb: 0, 0, 0;
-    --tblr-font-sans-serif: -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
+    --tblr-font-sans-serif: "Saira-Regular", -apple-system, BlinkMacSystemFont, San Francisco, Segoe UI, Roboto, Helvetica Neue, sans-serif;
     --tblr-font-monospace: Menlo, Monaco, Consolas, Liberation Mono, Courier New, monospace;
     --tblr-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.15), rgba(255, 255, 255, 0));
     --tblr-body-font-family: var(--tblr-font-sans-serif);

@@ -43,6 +43,10 @@ router.get('/apps', isAuthenticated, async (ctx) => {
     });
 });
 
+router.get('/terminal', isAuthenticated, async (ctx) => {
+    return await ctx.render('apps/terminal');
+});
+
 router.get('/logout', (ctx)=>{
     ctx.session = null;
     return ctx.redirect('/login')

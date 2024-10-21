@@ -40,7 +40,7 @@
                     <div class="text-secondary">
                         <ul class="list-inline list-inline-dots mb-0">
                             <li class="list-inline-item">
-                                Status
+                                <span data-translate="status">Status</span>
                             </li>
                             <li class="list-inline-item">
                                 <% if(app.status === "online"){ %>
@@ -74,7 +74,7 @@
                                     <path d="M20 4v5h-5">
                                     </path>
                                 </svg>
-                                Reload
+                                <span data-translate="reload">Reload</span>
                             </span>
                         </button>
                         <button class="btn btn-success btn-pill bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
@@ -87,7 +87,7 @@
                                     <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4">
                                     </path>
                                 </svg>
-                                Restart
+                                <span data-translate="restart">Restart</span>
                             </span>
                         </button>
                         <button class="btn btn-danger btn-pill bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'stop')">
@@ -98,7 +98,7 @@
                                     <path d="M5 5m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z">
                                     </path>
                                 </svg>
-                                Stop
+                                <span data-translate="stop">Stop</span>
                             </span>
                         </button>
                         <% } else{ %>
@@ -110,7 +110,7 @@
                                     <path d="M7 4v16l13 -8z">
                                     </path>
                                 </svg>
-                                Start
+                                <span data-translate="start">Start</span>
                             </span>
                         </button>
                         <% } %>
@@ -122,7 +122,7 @@
                                     <path d="M5 12l14 0">
                                     </path>
                                 </svg>
-                                Delete
+                                <span data-translate="delete">Delete</span>
                             </span>
                         </button>
                     </div>
@@ -159,7 +159,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                PROCESS ID
+                                                <span data-translate="process_id">PROCESS ID</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.pm_id %>
@@ -192,7 +192,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                VERSION
+                                                <span data-translate="version">VERSION</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.version %>
@@ -241,7 +241,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                MODE
+                                                <span data-translate="mode">MODE</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.exec_mode %>
@@ -272,7 +272,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                NAMESPACE
+                                                <span data-translate="namespace">NAMESPACE</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.namespace %>
@@ -319,7 +319,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                WATCH
+                                                <span data-translate="watch">WATCH</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.watch %>
@@ -366,7 +366,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                CPU USAGE
+                                                <span data-translate="cpu_usage">CPU USAGE</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.cpu %> %
@@ -409,7 +409,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                MEMORY USAGE
+                                                <span data-translate="memory_usage">MEMORY USAGE</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.memory %>
@@ -446,7 +446,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                PID
+                                                <span data-translate="pid">PID</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.pid %>
@@ -477,7 +477,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                RESTARTS
+                                                <span data-translate="restarts">RESTARTS</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.restarts %>
@@ -516,7 +516,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                UPTIME
+                                                <span data-translate="up_time">UPTIME</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.uptime %>
@@ -549,7 +549,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                CREATE AT
+                                                <span data-translate="created_at">CREATE AT</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.created_at %>
@@ -582,7 +582,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                DIRECTORY OF PROCESS
+                                                <span data-translate="directory_of_process">DIRECTORY OF PROCESS</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.pm2_env_cwd %>
@@ -615,7 +615,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                PATH OF THE SCRIPT
+                                                <span data-translate="path_of_the_script">PATH OF THE SCRIPT</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.pm_exec_path %>
@@ -648,7 +648,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                INTERPRETER
+                                                <span data-translate="interpreter">INTERPRETER</span>
                                             </div>
                                             <div class="text-secondary">
                                                 <%= app.exec_interpreter %>
@@ -692,7 +692,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                GIT REPO
+                                                <span data-translate="git_repo">GIT REPO</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.git_url %>
@@ -725,7 +725,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                GIT USER
+                                                <span data-translate="git_username">GIT USERNAME</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.git_username %>
@@ -758,7 +758,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                GIT EMAIL
+                                                <span data-translate="git_useremail">GIT EMAIL</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.git_useremail %>
@@ -799,7 +799,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                GIT BRANCH
+                                                <span data-translate="git_branch">GIT BRANCH</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.git_branch %>
@@ -834,7 +834,7 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                GIT COMMIT
+                                                <span data-translate="git_commit">GIT COMMIT</span>
                                             </div>
                                             <div class="text-secondary" id="uptime">
                                                 <%= app.git_commit %>
@@ -881,10 +881,10 @@
                                         </div>
                                         <div class="col">
                                             <div class="font-weight-medium">
-                                                .ENV FILE
+                                                <span data-translate="env_file">.ENV FILE</span>
                                             </div>
                                             <button class="btn btn-sm btn-white" data-bs-target="#env-file" data-bs-toggle="modal" href="#">
-                                                View File
+                                                <span data-translate="view_file">View File</span>
                                             </button>
                                         </div>
                                     </div>
@@ -926,7 +926,7 @@
                                             <path d="M10 21l4 -6">
                                             </path>
                                         </svg>
-                                        Status Logs
+                                        <span data-translate="status_logs">Status Logs</span>
                                     </a>
                                 </li>
                                 <li class="nav-item" role="presentation">
@@ -954,7 +954,7 @@
                                             <path d="M10 21l4 -6">
                                             </path>
                                         </svg>
-                                        Errors Logs
+                                        <span data-translate="erros_logs">Errors Logs</span>
                                     </a>
                                 </li>
                                 <li class="nav-item ms-auto" role="presentation">
@@ -1022,11 +1022,6 @@
         </div>
     </div>
 </div>
-<!-- Tabler Core -->
-<script src="/dist/js/tabler.min.js?1692870487">
-</script>
-<script src="/dist/js/prism.js">
-</script>
 <script>
     function getActiveTabData() {
     const data = {

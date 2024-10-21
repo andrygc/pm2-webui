@@ -6,10 +6,10 @@
             <div class="row g-2 align-items-center">
                 <div class="col">
                     <!-- Page pre-title -->
-                    <div class="page-pretitle">
+                    <div class="page-pretitle" data-translate="overview">
                         Overview
                     </div>
-                    <h2 class="page-title">
+                    <h2 class="page-title" data-translate="process_list">
                         Process List
                     </h2>
                 </div>
@@ -120,7 +120,7 @@
                                                             <path d="M10 21v-2">
                                                             </path>
                                                         </svg>
-                                                        CPU :
+                                                        <span data-translate="cpu">CPU</span>:
                                                         <%= app.cpu %> %
                                                     </div>
                                                     <div class="list-inline-item">
@@ -145,7 +145,7 @@
                                                             <path d="M12 12v-1">
                                                             </path>
                                                         </svg>
-                                                        Memory :
+                                                        <span data-translate="memory">Memory</span>:
                                                         <%= app.memory %>
                                                     </div>
                                                     <div class="list-inline-item">
@@ -166,7 +166,7 @@
                                                             <path d="M18 16.496v1.504l1 1">
                                                             </path>
                                                         </svg>
-                                                        Uptime :
+                                                        <span data-translate="uptime">Uptime</span>:
                                                         <%= app.uptime %>
                                                     </div>
                                                 </div>
@@ -184,7 +184,7 @@
                                                                 <path d="M20 4v5h-5">
                                                                 </path>
                                                             </svg>
-                                                            Reload
+                                                            <span data-translate="reload">Reload</span>
                                                         </span>
                                                     </button>
                                                     <button class="badge bg-green-lt" onclick="pm2AppAction('<%= app.name %>', 'restart')">
@@ -197,7 +197,7 @@
                                                                 <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 4v-4h-4">
                                                                 </path>
                                                             </svg>
-                                                            Restart
+                                                            <span data-translate="restart">Restart</span>
                                                         </span>
                                                     </button>
                                                     <button class="badge bg-red-lt" onclick="pm2AppAction('<%= app.name %>', 'stop')">
@@ -208,7 +208,7 @@
                                                                 <path d="M5 5m0 2a2 2 0 0 1 2 -2h10a2 2 0 0 1 2 2v10a2 2 0 0 1 -2 2h-10a2 2 0 0 1 -2 -2z">
                                                                 </path>
                                                             </svg>
-                                                            Stop
+                                                            <span data-translate="stop">Stop</span>
                                                         </span>
                                                     </button>
                                                     <% } else{ %>
@@ -220,7 +220,7 @@
                                                                 <path d="M7 4v16l13 -8z">
                                                                 </path>
                                                             </svg>
-                                                            Start
+                                                            <span data-translate="start">Start</span>
                                                         </span>
                                                     </button>
                                                     <% } %>
@@ -230,7 +230,7 @@
                                                                 <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                                                                 <path d="M5 12l14 0" />
                                                             </svg>
-                                                            Delete
+                                                            <span data-translate="delete">Delete</span>
                                                         </span>
                                                     </button>
                                                 </div>

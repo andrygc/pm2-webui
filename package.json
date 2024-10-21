@@ -1,13 +1,13 @@
 {
   "name": "pm2-webui",
-  "version": "2.0.1",
+  "version": "2.0.4",
   "description": "PM2 WebUI Dashboard",
   "main": "src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "pm2 start src/server.js --name pm2-webui-service --namespace monitoring",
     "start:dev": "npx nodemon",
-    "setup-admin-user": "node src/bin/setup-admin-user"
+    "setup-system": "node src/bin/setup-system"
   },
   "keywords": [],
   "author": "Andry Cardoza",
@@ -26,7 +26,9 @@
     "koa-static": "^5.0.0",
     "koa2-ratelimit": "^0.9.1",
     "pm2": "^5.4.2",
-    "prompts": "^2.4.2"
+    "prompts": "^2.4.2",
+    "ssh2": "^1.16.0",
+    "ws": "^8.18.0"
   },
   "repository": {
     "type": "git",
