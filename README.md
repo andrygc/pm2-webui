@@ -1,13 +1,11 @@
 <p align="center">
-<<<<<<< HEAD
     <img src="https://github.com/andrygc/pm2-webui/tree/master/src/public/dist/images/app/logo.png" height="130">
 </p>
 
 
 # PM2 WebUI
 Alternativa opensource de PM2 Plus
-
-=======
+<p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
 </p>
 
