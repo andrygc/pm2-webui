@@ -13,6 +13,7 @@ Alternativa opensource PM2 Plus
 - Vista de logs :white_check_mark:
 - Terminal web (cliente ssh) :white_check_mark:
 - Interfaz responsiva :white_check_mark:
+- Múltiple idiomas :white_check_mark:
 - Información sobre el repositorio :white_check_mark:
 - Administración de variables de entorno :white_check_mark:
 
