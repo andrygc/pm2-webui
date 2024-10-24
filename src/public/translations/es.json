@@ -51,7 +51,7 @@
     "git_repo": "REPOSITORIO GIT",
     "git_username": "NOMBRE DE USUARIO GIT",
     "git_useremail": "CORREO DE USUARIO GIT",
-    "git_branch": "GIT BRANCH",
+    "git_branch": "RAMA GIT",
     "git_commit": "COMENTARIO GIT",
     "env_file": "ARCHIVO .ENV",
     "view_file": "Ver archivo",

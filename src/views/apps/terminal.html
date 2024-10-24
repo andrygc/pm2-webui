@@ -21,7 +21,7 @@
     terminal.open(document.getElementById('terminal'));
     terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\n');
 
-    const ws = new WebSocket('ws://localhost:8080');
+    //const ws = new WebSocket('ws://localhost:8080');
 
     ws.onopen = () => {
         terminal.write('Connecting...\n');

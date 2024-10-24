@@ -13,6 +13,21 @@
                         Process List
                     </h2>
                 </div>
+                <div class="col-auto ms-auto">
+                    <a href="#" class="btn btn-pill bg-green-lt" data-bs-toggle="modal" data-bs-target="#new-deploy">
+                        <!-- Download SVG icon from http://tabler-icons.io/i/cube-plus -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                            <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                            <path d="M21 12.5v-4.509a1.98 1.98 0 0 0 -1 -1.717l-7 -4.008a2.016 2.016 0 0 0 -2 0l-7 4.007c-.619 .355 -1 1.01 -1 1.718v8.018c0 .709 .381 1.363 1 1.717l7 4.008a2.016 2.016 0 0 0 2 0" />
+                            <path d="M12 22v-10" />
+                            <path d="M12 12l8.73 -5.04" />
+                            <path d="M3.27 6.96l8.73 5.04" />
+                            <path d="M16 19h6" />
+                            <path d="M19 16v6" />
+                        </svg>
+                        <span class="">Deploy new app</span>
+                    </a>
+                </div>
             </div>
         </div>
     </div>
@@ -43,7 +58,7 @@
                                                 <h3 class="mb-0">
                                                     <a href="/apps/<%= app.name %>">
                                                         <h2 class="page-title">
-                                                            <svg class="icon icon-tabler icon-tabler-box" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                                            <svg class="icon icon-tabler icon-tabler-cube" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                                                 <path d="M0 0h24v24H0z" fill="none" stroke="none">
                                                                 </path>
                                                                 <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3">
@@ -247,4 +262,102 @@
         </div>
     </div>
 </div>
+<!-- modal new deploy -->
+<div class="modal modal-blur fade" id="new-deploy" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Deploy new app</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <div class="mb-3">
+                    <label class="form-label required">App Name</label>
+                    <input type="text" class="form-control" name="example-text-input" placeholder="Your app name">
+                </div>
+                <div class="mb-3">
+                    <label class="form-label required">Directory of app</label>
+                    <div class="input-group input-group-flat">
+                        <span class="input-group-text">
+                            /path/of/the/script/
+                        </span>
+                        <input type="text" class="form-control ps-0" value="index.js" autocomplete="off">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-9">
+                        <div class="mb-3">
+                            <label class="form-label">Namespace</label>
+                            <input type="text" class="form-control" placeholder="Namespace of the app">
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
+                        <div class="mb-3">
+                            <label class="form-label">Watch</label>
+                            <select class="form-select">
+                                <option value="1" selected>false</option>
+                                <option value="2">true</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                <label class="form-label">Mode type</label>
+                <div class="form-selectgroup-boxes row mb-3">
+                    <div class="col-lg-6">
+                        <label class="form-selectgroup-item">
+                            <input type="radio" name="mode-type" value="1" class="form-selectgroup-input" checked>
+                            <span class="form-selectgroup-label d-flex align-items-center p-3">
+                                <span class="me-3">
+                                    <span class="form-selectgroup-check"></span>
+                                </span>
+                                <span class="form-selectgroup-label-content">
+                                    <span class="form-selectgroup-title strong mb-1">Fork</span>
+                                    <span class="d-block text-secondary">Provide only basic instance for the process</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="form-selectgroup-item">
+                            <input type="radio" name="mode-type" value="1" class="form-selectgroup-input">
+                            <span class="form-selectgroup-label d-flex align-items-center p-3">
+                                <span class="me-3">
+                                    <span class="form-selectgroup-check"></span>
+                                </span>
+                                <span class="form-selectgroup-label-content">
+                                    <span class="form-selectgroup-title strong mb-1">Cluster</span>
+                                    <span class="d-block text-secondary">Provide two instances for the process in cluster mode</span>
+                                </span>
+                            </span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div>
+                            <label class="form-label">Other params</label>
+                            <textarea class="form-control" rows="3" placeholder="Write others params for the app..."></textarea>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                    Cancel
+                </a>
+                <a href="#" class="btn btn-pill bg-green-lt ms-auto" data-bs-dismiss="modal">
+                    <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 12l5 5l10 -10" />
+                    </svg>
+                    Deploy
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- modal new deploy -->
 <!-- end page dashboard -->
