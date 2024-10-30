@@ -25,7 +25,7 @@
                             <path d="M16 19h6" />
                             <path d="M19 16v6" />
                         </svg>
-                        <span class="">Deploy new app</span>
+                        <span class="" data-translate="deploy_new_app">Deploy new app</span>
                     </a>
                 </div>
             </div>
@@ -267,41 +267,51 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title">Deploy new app</h5>
+                <h5 class="modal-title" data-translate="deploy_new_app">Deploy new app</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
                 <div class="mb-3">
-                    <label class="form-label required">App Name</label>
-                    <input type="text" class="form-control" name="example-text-input" placeholder="Your app name">
+                    <label class="form-label required" data-translate="deploy_app_name">App Name</label>
+                    <input type="text" class="form-control" id="app-name" data-translate-placeholder="deploy_app_name_ph" placeholder="Your app name" required>
                 </div>
-                <div class="mb-3">
-                    <label class="form-label required">Directory of app</label>
-                    <div class="input-group input-group-flat">
-                        <span class="input-group-text">
-                            /path/of/the/script/
-                        </span>
-                        <input type="text" class="form-control ps-0" value="index.js" autocomplete="off">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label class="form-label required" data-translate="deploy_directory_of_the_app">Directory of the app</label>
+                            <input type="text" class="form-control" id="directory-app" placeholder="C:\xampp\htdocs\" required>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="mb-3">
+                            <label class="form-label required" data-translate="deploy_script_of_the_app">Script of the app</label>
+                            <div class="input-group input-group-flat">
+                                <span class="input-group-text" id="directory-app-pre-value">
+                                    C:\xampp\htdocs\
+                                </span>
+                                <input type="text" id="script-app" class="form-control ps-0" placeholder="src\index.js" autocomplete="off" required>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-lg-9">
                         <div class="mb-3">
-                            <label class="form-label">Namespace</label>
-                            <input type="text" class="form-control" placeholder="Namespace of the app">
+                            <label class="form-label" data-translate="deploy_name_space">Namespace</label>
+                            <input type="text" class="form-control" id="namespace" data-translate-placeholder="deploy_name_space_ph" placeholder="Namespace of the app">
                         </div>
                     </div>
                     <div class="col-lg-3">
                         <div class="mb-3">
-                            <label class="form-label">Watch</label>
-                            <select class="form-select">
-                                <option value="1" selected>false</option>
-                                <option value="2">true</option>
+                            <label class="form-label" data-translate="deploy_watch_opt">Watch</label>
+                            <select class="form-select" id="watch">
+                                <option value="false" data-translate="deploy_watch_opt_false" selected>false</option>
+                                <option value="true" data-translate="deploy_watch_opt_true">true</option>
                             </select>
                         </div>
                     </div>
                 </div>
-                <label class="form-label">Mode type</label>
+                <label class="form-label" data-translate="deploy_mode_type">Mode type</label>
                 <div class="form-selectgroup-boxes row mb-3">
                     <div class="col-lg-6">
                         <label class="form-selectgroup-item">
@@ -311,53 +321,96 @@
                                     <span class="form-selectgroup-check"></span>
                                 </span>
                                 <span class="form-selectgroup-label-content">
-                                    <span class="form-selectgroup-title strong mb-1">Fork</span>
-                                    <span class="d-block text-secondary">Provide only basic instance for the process</span>
+                                    <span class="form-selectgroup-title strong mb-1" data-translate="deploy_mode_fork">Fork</span>
+                                    <span class="d-block text-secondary" data-translate="deploy_mode_fork_details">Provide only basic instance for the process</span>
                                 </span>
                             </span>
                         </label>
                     </div>
                     <div class="col-lg-6">
                         <label class="form-selectgroup-item">
-                            <input type="radio" name="mode-type" value="1" class="form-selectgroup-input">
+                            <input type="radio" name="mode-type" value="2" class="form-selectgroup-input">
                             <span class="form-selectgroup-label d-flex align-items-center p-3">
                                 <span class="me-3">
                                     <span class="form-selectgroup-check"></span>
                                 </span>
                                 <span class="form-selectgroup-label-content">
-                                    <span class="form-selectgroup-title strong mb-1">Cluster</span>
-                                    <span class="d-block text-secondary">Provide two instances for the process in cluster mode</span>
+                                    <span class="form-selectgroup-title strong mb-1" data-translate="deploy_mode_cluster">Cluster</span>
+                                    <span class="d-block text-secondary" data-translate="deploy_mode_cluster_details">Provide two instances for the process in cluster mode</span>
                                 </span>
                             </span>
                         </label>
                     </div>
                 </div>
             </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div>
-                            <label class="form-label">Other params</label>
-                            <textarea class="form-control" rows="3" placeholder="Write others params for the app..."></textarea>
-                        </div>
-                    </div>
-                </div>
-            </div>
             <div class="modal-footer">
-                <a href="#" class="btn btn-link link-secondary" data-bs-dismiss="modal">
-                    Cancel
-                </a>
-                <a href="#" class="btn btn-pill bg-green-lt ms-auto" data-bs-dismiss="modal">
-                    <!-- Download SVG icon from http://tabler-icons.io/i/check -->
+                <button type="button" class="btn btn-link link-secondary" data-bs-dismiss="modal">
+                    <span data-translate="deploy_cancel">Cancel</span>
+                </button>
+                <button type="button" id="deploy-button" class="btn btn-pill bg-green-lt ms-auto">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <path stroke="none" d="M0 0h24v24H0z" fill="none" />
                         <path d="M5 12l5 5l10 -10" />
                     </svg>
-                    Deploy
-                </a>
+                    <span data-translate="deploy">Deploy</span>
+                </button>
             </div>
         </div>
     </div>
 </div>
 <!-- modal new deploy -->
 <!-- end page dashboard -->
+<script>
+    // Actualizar el campo de directory-app-pre-value cuando el usuario introduce un valor en directory-app
+    document.getElementById('directory-app').addEventListener('input', function() {
+        document.getElementById('directory-app-pre-value').textContent = this.value;
+    });
+
+    document.getElementById('deploy-button').addEventListener('click', async () => {
+        // Capturamos los datos del formulario
+        const appName = document.getElementById('app-name').value.trim();
+        const directoryApp = document.getElementById('directory-app').value.trim();
+        const scriptApp = directoryApp + document.getElementById('script-app').value.trim();
+        const namespace = document.getElementById('namespace').value.trim();
+        const watch = document.getElementById('watch').value === 'true';
+        const modeType = document.querySelector('input[name="mode-type"]:checked').value;
+
+        // Validamos que sean campos obligatorios
+        if (!appName || !directoryApp || !scriptApp) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        // Definimos los datos a enviar
+        const payload = {
+            name: appName,
+            script: scriptApp,
+            namespace: namespace,
+            watch: watch,
+            modeType: modeType
+        };
+
+        try {
+            const response = await fetch('/api/deploy', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(payload)
+            });
+
+            const result = await response.json();
+
+            if(result.success) {
+                alert('Deployment successful!');
+                // Aquí puedes cerrar el modal y limpiar el formulario si es necesario
+                $('#new-deploy').modal('hide');
+            } else {
+                alert('Deployment failed: ' + result.error);
+            }
+        } catch (error) {
+            console.error('Error while deploying:', error);
+            alert('An error occurred while deploying the app.');
+        }
+    });
+</script>

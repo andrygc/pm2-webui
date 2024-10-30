@@ -1,10 +1,10 @@
 const config = require('../config')
 const RateLimit = require('koa2-ratelimit').RateLimit;
 const router = require('@koa/router')();
-const { listApps, describeApp, reloadApp, restartApp, stopApp, deleteApp } = require('../providers/pm2/api')
+const { listApps, describeApp, reloadApp, restartApp, stopApp, deleteApp, deployApp } = require('../providers/pm2/api')
 const { validateAdminUser } = require('../services/admin.service')
 const { readLogsReverse } = require('../utils/read-logs.util')
-const { getCurrentGitBranch, getCurrentGitCommit, getCurrentGitUrl, getCurrentGitUsername, getCurrentGitUserEmail } = require('../utils/git.util')
+const { getCurrentGitBranch, getCurrentGitCommit, getCurrentGitComment, getCurrentGitUrl, getCurrentGitUsername, getCurrentGitUserEmail } = require('../utils/git.util')
 const { getEnvFileContent } = require('../utils/env.util')
 const { isAuthenticated, checkAuthentication }= require('../middlewares/auth')
 const AnsiConverter = require('ansi-to-html');
@@ -58,6 +58,7 @@ router.get('/apps/:appName', isAuthenticated, async (ctx) => {
     if(app){
         app.git_branch = await getCurrentGitBranch(app.pm2_env_cwd)
         app.git_commit = await getCurrentGitCommit(app.pm2_env_cwd)
+        app.git_comment = await getCurrentGitComment(app.pm2_env_cwd)
         app.git_url = await getCurrentGitUrl(app.pm2_env_cwd)
         app.git_username = await getCurrentGitUsername(app.pm2_env_cwd)
         app.git_useremail = await getCurrentGitUserEmail(app.pm2_env_cwd)
@@ -180,6 +181,44 @@ router.post('/api/apps/:appName/delete', isAuthenticated, async (ctx) => {
         }
     }
     console.log(err)
+});
+
+router.post('/api/deploy', isAuthenticated, async (ctx) => {
+    try {
+        // Capturamos los datos enviados en el cuerpo de la solicitud
+        const { name, script, namespace, watch, modeType } = ctx.request.body;
+        
+        // Creamos la configuración de la aplicación
+        const appConfig = {
+            name, 
+            script,
+            watch: watch ? true : false, // Convertir a booleano
+            mode: modeType === "1" ? "fork" : "cluster", // Definimos el modo basado en el valor seleccionado
+            namespace: namespace || '',
+        };
+        console.log(appConfig);
+
+        // Llamamos a la función deployApp para desplegar la aplicación
+        const apps = await deployApp(appConfig);
+
+        // Verificamos si se obtuvo algún resultado
+        if (Array.isArray(apps) && apps.length > 0) {
+            return ctx.body = {
+                success: true,
+                apps: apps // Puedes incluir información sobre las aplicaciones desplegadas
+            };
+        }
+
+        return ctx.body = {
+            success: false // Si no se desplegó ninguna aplicación
+        };
+    } catch (err) {
+        console.error(err);
+        return ctx.body = {
+            success: false,
+            error: err.message // Devuelve solo el mensaje de error, no el objeto completo
+        };
+    }
 });
 
 module.exports = router;

@@ -659,6 +659,116 @@
                             </div>
                         </div>
                         <!-- end "interpreter" -->
+                        <!-- start "git branch" -->
+                        <% if(app.git_branch){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icon-tabler-git-branch" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <circle cx="7" cy="18" r="2">
+                                                    </circle>
+                                                    <circle cx="7" cy="6" r="2">
+                                                    </circle>
+                                                    <circle cx="17" cy="6" r="2">
+                                                    </circle>
+                                                    <line x1="7" x2="7" y1="8" y2="16">
+                                                    </line>
+                                                    <path d="M9 18h6a2 2 0 0 0 2 -2v-5">
+                                                    </path>
+                                                    <polyline points="14 14 17 11 20 14">
+                                                    </polyline>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <span data-translate="git_branch">GIT BRANCH</span>
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_branch %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git branch" -->
+                        <!-- start "git commit" -->
+                        <% if(app.git_commit){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
+                                                <svg class="icon icon-tabler icon-tabler-git-commit" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
+                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                                    </path>
+                                                    <circle cx="12" cy="12" r="3">
+                                                    </circle>
+                                                    <line x1="12" x2="12" y1="3" y2="9">
+                                                    </line>
+                                                    <line x1="12" x2="12" y1="15" y2="21">
+                                                    </line>
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <span data-translate="git_commit">GIT COMMIT</span>
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_commit %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git commit" -->
+                        <!-- start "git comment" -->
+                        <% if(app.git_comment){ %>
+                        <div class="col-md-4">
+                            <div class="card card-sm card-stacked">
+                                <div class="card-body">
+                                    <div class="row align-items-center">
+                                        <div class="col-auto">
+                                            <span class="bg-teal-lt text-white avatar">
+                                                <!-- Download SVG icon from http://tabler-icons.io/i/git-comment -->
+                                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                                    <path d="M6 6m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                                    <path d="M18 18m-2 0a2 2 0 1 0 4 0a2 2 0 1 0 -4 0" />
+                                                    <path d="M11 6h5a2 2 0 0 1 2 2v8" />
+                                                    <path d="M14 9l-3 -3l3 -3" />
+                                                    <path d="M13 18h-5a2 2 0 0 1 -2 -2v-8" />
+                                                    <path d="M10 15l3 3l-3 3" />
+                                                </svg>
+                                            </span>
+                                        </div>
+                                        <div class="col">
+                                            <div class="font-weight-medium">
+                                                <span data-translate="git_comment">GIT COMMENT</span>
+                                            </div>
+                                            <div class="text-secondary" id="uptime">
+                                                <%= app.git_comment %>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <% } %>
+                        <!-- end "git comment" -->
                         <!-- start "git repo url" -->
                         <% if(app.git_url){ %>
                         <div class="col-md-4">
@@ -770,82 +880,6 @@
                         </div>
                         <% } %>
                         <!-- end "git user email" -->
-                        <!-- start "git branch" -->
-                        <% if(app.git_branch){ %>
-                        <div class="col-md-4">
-                            <div class="card card-sm card-stacked">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span class="bg-teal-lt text-white avatar">
-                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                                <svg class="icon icon-tabler icon-tabler-git-branch" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
-                                                    </path>
-                                                    <circle cx="7" cy="18" r="2">
-                                                    </circle>
-                                                    <circle cx="7" cy="6" r="2">
-                                                    </circle>
-                                                    <circle cx="17" cy="6" r="2">
-                                                    </circle>
-                                                    <line x1="7" x2="7" y1="8" y2="16">
-                                                    </line>
-                                                    <path d="M9 18h6a2 2 0 0 0 2 -2v-5">
-                                                    </path>
-                                                    <polyline points="14 14 17 11 20 14">
-                                                    </polyline>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">
-                                                <span data-translate="git_branch">GIT BRANCH</span>
-                                            </div>
-                                            <div class="text-secondary" id="uptime">
-                                                <%= app.git_branch %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <% } %>
-                        <!-- end "git branch" -->
-                        <!-- start "git commit" -->
-                        <% if(app.git_commit){ %>
-                        <div class="col-md-4">
-                            <div class="card card-sm card-stacked">
-                                <div class="card-body">
-                                    <div class="row align-items-center">
-                                        <div class="col-auto">
-                                            <span class="bg-teal-lt text-white avatar">
-                                                <!-- Download SVG icon from http://tabler-icons.io/i/brand-facebook -->
-                                                <svg class="icon icon-tabler icon-tabler-git-commit" fill="none" height="44" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" viewbox="0 0 24 24" width="44" xmlns="http://www.w3.org/2000/svg">
-                                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
-                                                    </path>
-                                                    <circle cx="12" cy="12" r="3">
-                                                    </circle>
-                                                    <line x1="12" x2="12" y1="3" y2="9">
-                                                    </line>
-                                                    <line x1="12" x2="12" y1="15" y2="21">
-                                                    </line>
-                                                </svg>
-                                            </span>
-                                        </div>
-                                        <div class="col">
-                                            <div class="font-weight-medium">
-                                                <span data-translate="git_commit">GIT COMMIT</span>
-                                            </div>
-                                            <div class="text-secondary" id="uptime">
-                                                <%= app.git_commit %>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <% } %>
-                        <!-- end "git commit" -->
                         <!-- start ".env file" -->
                         <% if(app.env_file){ %>
                         <div class="col-md-4">
@@ -1023,7 +1057,7 @@
     </div>
 </div>
 <script>
-    function getActiveTabData() {
+function getActiveTabData() {
     const data = {
         log_type: $('.tab-pane.active').attr('id'),
         next_key: $('.tab-pane.active').attr('data-next-key')

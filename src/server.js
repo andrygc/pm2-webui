@@ -26,9 +26,9 @@ const wss = new WebSocket.Server({ port: config.WS_PORT });
 wss.on('connection', (ws) => {
     const conn = new Client();
     conn.on('ready', () => {
-        ws.send('Client SSH started\n');
+        ws.send('Connected successfully!!\r\n\n');
         conn.shell((err, stream) => {
-            if (err) return ws.send('Error: ' + err.message + '\n');
+            if (err) return ws.send('Error: ' + err.message + '\r\n');
 
             stream.on('data', (data) => {
                 ws.send(data.toString());

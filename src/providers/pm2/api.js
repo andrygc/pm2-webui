@@ -142,12 +142,31 @@ function deleteApp(process){
     })
 }
 
+function deployApp(process) {
+    return new Promise((resolve, reject) => {
+        pm2.connect(err => {
+            if (err) {
+                return reject(err);
+            }
+
+            pm2.start(process, (err, proc) => {
+                pm2.disconnect();
+                if (err) {
+                    return reject(err);
+                }
+                resolve(proc);
+            });
+        });
+    });
+}
+
 module.exports = {
     listApps,
     describeApp,
     reloadApp,
     restartApp,
     stopApp,
-    deleteApp    
+    deleteApp,
+    deployApp    
 }
 

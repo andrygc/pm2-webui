@@ -65,28 +65,10 @@
                     </a>
                 </h1>
                 <div class="navbar-nav flex-row order-md-last">
-                    <div class="nav-item d-none d-md-flex me-3">
+                    <!-- <div class="nav-item d-none d-md-flex me-3">
                         <div class="btn-list">
-                            <button class="btn" data-bs-target="#license" data-bs-toggle="modal">
-                                <!-- Download SVG icon from http://tabler-icons.io/i/heart -->
-                                <svg class="icon text-pink" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
-                                    </path>
-                                    <path d="M7 20l10 0">
-                                    </path>
-                                    <path d="M6 6l6 -1l6 1">
-                                    </path>
-                                    <path d="M12 3l0 17">
-                                    </path>
-                                    <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0">
-                                    </path>
-                                    <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0">
-                                    </path>
-                                </svg>
-                                <span data-translate="license">License</span>
-                            </button>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="nav-item dropdown">
                         <a aria-label="Open user menu" class="nav-link d-flex lh-1 text-reset p-0" data-bs-toggle="dropdown" href="#">
                             <span class="avatar avatar-sm" style="background-image: url(/dist/images/app/administrator.jpg)">
@@ -121,6 +103,36 @@
                                 </svg>
                                 &nbsp; <span data-translate="light_mode">Light Mode</span>
                             </a>
+                            <a class="dropdown-item" data-bs-target="#license" data-bs-toggle="modal">
+                                <svg class="icon" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M0 0h24v24H0z" fill="none" stroke="none">
+                                    </path>
+                                    <path d="M7 20l10 0">
+                                    </path>
+                                    <path d="M6 6l6 -1l6 1">
+                                    </path>
+                                    <path d="M12 3l0 17">
+                                    </path>
+                                    <path d="M9 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                    <path d="M21 12l-3 -6l-3 6a3 3 0 0 0 6 0">
+                                    </path>
+                                </svg>
+                                &nbsp; <span data-translate="license">License</span>
+                            </a>
+                            <a class="dropdown-item" data-bs-target="#changelog" data-bs-toggle="modal">
+                                <!-- Download SVG icon from http://tabler-icons.io/i/book -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="icon" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                    <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                                    <path d="M3 19a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                    <path d="M3 6a9 9 0 0 1 9 0a9 9 0 0 1 9 0" />
+                                    <path d="M3 6l0 13" />
+                                    <path d="M12 6l0 13" />
+                                    <path d="M21 6l0 13" />
+                                </svg>
+                                &nbsp; <span data-translate="changelog">Changelog</span>
+                            </a>
+                            <div class="dropdown-divider"></div>
                             <a class="dropdown-item" href="/terminal" data-bs-placement="left" data-bs-toggle="tooltip" title="Open the terminal">
                                 <svg class="icon icon-tabler icons-tabler-outline icon-tabler-terminal-2" fill="none" height="24" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" viewbox="0 0 24 24" width="24" xmlns="http://www.w3.org/2000/svg">
                                     <path d="M0 0h24v24H0z" fill="none" stroke="none">
@@ -289,6 +301,131 @@
             </div>
         </div>
         <!-- end "modal license" -->
+        <!-- sart "modal changelog" -->
+        <div aria-hidden="true" class="modal modal-blur fade" id="changelog" style="display: none;" tabindex="-1">
+            <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title">Changelog</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.5</span> –
+                                <small>October 27, 2024</small>
+                            </h2>
+                            <ul>
+                                <li>Fix: terminal rows scale.</li>
+                                <li>Add <code>getCurrentGitComment</code> function.</li>
+                                <li>Add <code>deployApp</code> function in pm2 API file.</li>
+                                <li>Add <code>/deploy</code> static route.</li>
+                                <li>Add new <code>button</code> for open deploy modal in the dashboard.</li>
+                                <li>Add modal with form for the new apps deploy.</li>
+                                <li>Add alerts for deploy success or error exit.</li>
+                                <li>Add modal with changelog details.</li>
+                                <li>Update user menu with <code>Changelog</code> and <code>License</code> options.</li>
+                                <li>Update the distribution of user menu options.</li>
+                                <li>Update <code>us.json</code> and <code>es.json</code> translations files.</li>
+                                <li>Remove <code>button</code> License from the navbar.</li>
+                                <li>Update changelog details.</li>
+                            </ul>
+                        </div>
+                        <!-- end version -->
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.4</span> –
+                                <small>October 22, 2024</small>
+                            </h2>
+                            <ul>
+                                <li>Add dependencies <code>ssh2</code> and <code>webocket</code>.</li>
+                                <li>Update <code>server.js</code> with the <code>ssh-client</code> function using <code>websocket</code>.</li>
+                                <li>Add <code>Logger</code> module for show custom logs.</li>
+                                <li>Change <code>setup-admin-user</code> to <code>setup-system</code> command.</li>
+                                <li>Update <code>createAdminUser</code> function with new params.</li>
+                                <li>Update <code>setup-admin-user</code> to <code>setup-system</code> script in <code>package.json</code> file.</li>
+                                <li>Add new questions for the command <code>npm run setup-system</code>.</li>
+                                <li>Update <code>.env</code> variables.</li>
+                            </ul>
+                        </div>
+                        <!-- end version -->
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.3</span> –
+                                <small>October 20, 2024</small>
+                            </h2>
+                            <ul>
+                                <li>Add <code>terminal</code> option to manage server console.</li>
+                                <li>Add <code>/terminal</code> static route.</li>
+                                <li>Add <code>terminal.html</code> file.</li>
+                                <li>Update user menu with <code>terminal</code> option.</li>
+                                <li>Add <code>xterm.js</code> library.</li>
+                                <li>Add new <code>button</code> in navbar for show modal of License.</li>
+                                <li>Add modal for show License.</li>
+                                <li>Add language dropdown selector in the Login.</li>
+                                <li>Add new language translations files: <code>fr.json</code>, <code>it.json</code>, <code>pt.json</code> and <code>ru.json</code>.</li>
+                                <li>Remove <code>button</code> language dropdown selector from the navbar.</li>
+                                <li>Add language dropdown selector in the footer.</li>
+                            </ul>
+                        </div>
+                        <!-- end version -->
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.2</span> –
+                                <small>October 16, 2024</small>
+                            </h2>
+                            <ul>
+                                <li>Add multilanguage options.</li>
+                                <li>Add <code>button</code> with dropdown for language items.</li>
+                                <li>Add flags for the language options.</li>
+                                <li>Add <code>translations</code> folder with <code>us.json</code> and <code>es.json</code> files.</li>
+                                <li>Add <code>byteToSizes</code> and <code>timeSince</code> function for pretty show datatime and datasize.</li>
+                                <li>Add new data of the pm2 API for the apps.</li>
+                                <li>Add support for Git data.</li>
+                                <li>Add <code>getCurrentGitBranch</code>, <code>getCurrentGitCommit</code>, <code>getCurrentGitUrl</code>, <code>getCurrentGitUsername</code>, <code>getCurrentGitUserEmail</code> functions.</li>
+                            </ul>
+                        </div>
+                        <!-- end version -->
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.1</span> –
+                                <small>October 12, 2024</small>
+                            </h2>
+                            <ul>
+                                <li>Add independent cards for the details of he apps.</li>
+                                <li>Add option show/hide pass on Login.</li>
+                                <li>Add <code>handlePreloader</code> function with <code>setTimeout</code> on 3 seconds.</li>
+                                <li>Add <code>deleteApp</code> function in pm2 API file.</li>
+                                <li>Add <code>/delete</code> static route.</li>
+                                <li>Update view of logs registers for apps.</li>
+                            </ul>
+                        </div>
+                        <!-- end version -->
+                        <!-- start version -->
+                        <div class="mb-4">
+                            <h2 class="mb-2">
+                                <span>v2.0.0</span> –
+                                <small>October 09, 2024</small>
+                            </h2>
+                            <p class="strong">Initial changes release of PM2 WebUI v1.0.0! 😁</p>
+                            <ul>
+                                <li>Change logo app.</li>
+                                <li>Change Apps details interface design.</li>
+                                <li>Change Dashboard interface design.</li>
+                                <li>Change Login interface design.</li>
+                                <li>Update Tabler library to 1.0.0-beta20.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- end "modal changelog" -->
         <!-- start footer -->
         <footer class="footer footer-transparent d-print-none">
             <div class="container-xl">
@@ -308,7 +445,7 @@
                             </li>
                             <li class="list-inline-item">
                                 <span class="badge bg-teal-lt">
-                                    v2.0.4
+                                    v2.0.5
                                 </span>
                             </li>
                         </ul>
@@ -349,7 +486,7 @@
             document.getElementById('base').style.display = 'flex';
         }
 
-        // Esperar 5 segundos antes de ocultar el preloader
+        // Esperar 3 segundos antes de ocultar el preloader
         window.onload = function() {
             setTimeout(hidePreloader, 3000);
         }

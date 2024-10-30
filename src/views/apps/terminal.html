@@ -17,14 +17,17 @@
     </div>
 </div>
 <script>
-    const terminal = new Terminal({ cursorBlink: true });
+    const terminal = new Terminal({ 
+        cursorBlink: true,
+        cols: 138
+    });
     terminal.open(document.getElementById('terminal'));
-    terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\n');
+    terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\r\n\n');
 
-    //const ws = new WebSocket('ws://localhost:8080');
+    const ws = new WebSocket('ws://localhost:8081');
 
     ws.onopen = () => {
-        terminal.write('Connecting...\n');
+        terminal.write('Connecting...\r\n');
     };
 
     ws.onmessage = (event) => {

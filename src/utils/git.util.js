@@ -22,6 +22,17 @@ const getCurrentGitCommit = async (cwd)=>{
     })
 }
 
+const getCurrentGitComment = async (cwd)=>{
+    return new Promise((resolve, reject) => {
+        exec('git log -1 --pretty=%B', { cwd }, (err, stdout, stderr) => {
+            if (!err && typeof stdout === 'string') {
+                resolve(stdout.trim())
+            }
+            resolve(null)
+        });
+    })
+}
+
 const getCurrentGitUrl = async (cwd)=>{
     return new Promise((resolve, reject) => {
         exec('git remote get-url origin', { cwd }, (err, stdout, stderr) => {
@@ -58,6 +69,7 @@ const getCurrentGitUserEmail = async (cwd)=>{
 module.exports = {
     getCurrentGitBranch,
     getCurrentGitCommit,
+    getCurrentGitComment,
     getCurrentGitUrl,
     getCurrentGitUsername,
     getCurrentGitUserEmail
