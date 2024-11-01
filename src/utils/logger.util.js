@@ -1,4 +1,5 @@
 const fs = require("fs");
+const config = require('../config');
 
 class Logger {
 
@@ -7,50 +8,28 @@ class Logger {
     }
 
     success(text) {
-        console.log(`\x1b[32m[Success]:\x1b[0m ${text}`);
+        console.log(`\x1b[32m[` + config.APP_NAME + `]:\x1b[0m ${text}`);
     }
 
     info(text) {
-        console.log(`\x1b[36m[Info]:\x1b[0m ${text}`);
+        console.log(`\x1b[36m[` + config.APP_NAME + `]:\x1b[0m ${text}`);
     }
 
     warn(text) {
-        console.log(`\x1b[33m[Warning]:\x1b[0m ${text}`);
+        console.log(`\x1b[33m[` + config.APP_NAME + `]:\x1b[0m ${text}`);
     }
 
     error(text) {
-        console.log(`\x1b[31m[Error]:\x1b[0m ${text}`);
+        console.log(`\x1b[31m[` + config.APP_NAME + `]:\x1b[0m ${text}`);
     }
 
     fatal(text) {
-        console.log(`\x1b[91mProcess stopped as a result of an error:\x1b[0m`);
-        console.log(`\x1b[31m${text}\x1b[0m`);
+        console.log(`\x1b[91m[` + config.APP_NAME + `]: Process stopped as a result of an error:\x1b[0m`);
+        console.log(`\x1b[31m[` + config.APP_NAME + `]: ${text}\x1b[0m`);
     }
 
     print(text) {
-        console.log(`${text}`);
-    }
-    
-    // TODO: error writing
-    write(text) {
-        var date = new Date(),
-        hour = date.getHours();
-        hour = (hour < 10 ? "0" : "") + hour;
-        var min = date.getMinutes();
-        min = (min < 10 ? "0" : "") + min;
-        hour += ":" + min;
-        
-        fs.writeFileSync('./logs/server-log.log', '[' + hour + '] ' + text + '\r' + '\n');
-
-        //fs.writeFileSync('./logs/logs.txt', text);
-    }
-
-    start(text) {
-
-    }
-
-    shutdown(text) {
-
+        console.log(`[` + config.APP_NAME + `]: ${text}`);
     }
 }
 
