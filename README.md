@@ -8,8 +8,10 @@ Alternativa opensource PM2 Plus
 
 
 ## CARACTERÍSTICAS
+- Soporte pa HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
+- Despliegue de nuevos procesos :white_check_mark:
 - Vista de logs :white_check_mark:
 - Terminal web (cliente ssh) :white_check_mark:
 - Interfaz responsiva :white_check_mark:
@@ -62,10 +64,6 @@ npm run start:dev
 - [ ] Reemplace exec.util con [execa](https://www.npmjs.com/package/execa)
 - [ ] Agregar gestión de entorno basada en formularios
 - [ ] Agregar registros en tiempo real
-- [ ] Agregar visor de registros para implementaciones
-- [ ] Agregar funcionalidad para cancelar la implementación
-- [ ] Agregar activadores de implementación
-- [ ] Agregue estrategias de implementación con tiempo de inactividad cero: azul-verde, continua, etc.
 - [ ] Agregar proveedor de Docker
 
 
@@ -79,7 +77,7 @@ npm run start:dev
 
 
 ## LICENCIA
-[MIT Copyright (c) 2024 Andry Noilien Guzmán Cardoza](https://github.com/andrygc/agario-deluxe/blob/main/LICENSE)
+[MIT Copyright (c) 2024 Andry Noilien Guzmán Cardoza](https://github.com/andrygc/pm2-webui/blob/main/LICENSE)
 
 
 ## AUTOR
