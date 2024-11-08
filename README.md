@@ -8,7 +8,7 @@ Alternativa opensource PM2 Plus
 
 
 ## CARACTERÍSTICAS
-- Soporte pa HTTPS :white_check_mark:
+- Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
 - Despliegue de nuevos procesos :white_check_mark:
