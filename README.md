@@ -1,10 +1,6 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
     <br>
-    <img src="https://badgen.net/badge/icon/@andrygc?icon=github&label">
-    <img src="https://badgen.net/badge/node/18.19.0">
-    <img src="https://badgen.net/badge/npm/10.2.4">
-    <img src="https://badgen.net/badge/pm2/5.4.2">
     <img src="https://badgen.net/badge/release-version/v2.0.7/green">
     <img src="https://badgen.net/badge/license/MIT/green">
     <img src="https://badgen.net/badge/starred/3/yellow">
