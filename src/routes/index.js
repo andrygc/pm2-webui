@@ -1,7 +1,8 @@
 const config = require('../config')
 const RateLimit = require('koa2-ratelimit').RateLimit;
 const router = require('@koa/router')();
-const { listApps, describeApp, reloadApp, restartApp, stopApp, deleteApp, deployApp } = require('../providers/pm2/api')
+const Logger = require('../utils/logger.util');
+const { listApps, describeApp, reloadApp, restartApp, stopApp, startApp, deleteApp, deployApp } = require('../providers/pm2/api')
 const { validateAdminUser } = require('../services/admin.service')
 const { readLogsReverse } = require('../utils/read-logs.util')
 const { getCurrentGitBranch, getCurrentGitCommit, getCurrentGitComment, getCurrentGitUrl, getCurrentGitUsername, getCurrentGitUserEmail } = require('../utils/git.util')
@@ -29,15 +30,17 @@ router.post('/login', loginRateLimiter, checkAuthentication, async (ctx) => {
     try {
         await validateAdminUser(username, password)
         ctx.session.isAuthenticated = true;
+        Logger.shell(`Admin user login`);
         return ctx.redirect('/apps')
     }
     catch(err){
+        Logger.error(err.message);
         return await ctx.render('auth/login', {layout : false, login: { username, password, error: err.message }})
     }
 })
 
 router.get('/apps', isAuthenticated, async (ctx) => {
-    const apps =  await listApps()
+    const apps =  await listApps();
     return await ctx.render('apps/dashboard', {
       apps
     });
@@ -49,6 +52,7 @@ router.get('/terminal', isAuthenticated, async (ctx) => {
 
 router.get('/logout', (ctx)=>{
     ctx.session = null;
+    Logger.shell(`Admin user logout`);
     return ctx.redirect('/login')
 })
 
@@ -135,7 +139,6 @@ router.post('/api/apps/:appName/restart', isAuthenticated,  async (ctx) => {
         }
     }
     catch(err){
-        console.log(err)
         return ctx.body = {
             'error':  err
         }
@@ -156,6 +159,28 @@ router.post('/api/apps/:appName/stop', isAuthenticated, async (ctx) => {
         }
     }
     catch(err){
+        Logger.error(err.message);
+        return ctx.body = {
+            'error':  err
+        }
+    }
+});
+
+router.post('/api/apps/:appName/start', isAuthenticated, async (ctx) => {
+    try{
+        let { appName } = ctx.params
+        let apps =  await startApp(appName)
+        if(Array.isArray(apps) && apps.length > 0){
+            return ctx.body = {
+                success: true
+            }
+        }
+        return ctx.body = {
+            success: false
+        }
+    }
+    catch(err){
+        Logger.error(err.message);
         return ctx.body = {
             'error':  err
         }
@@ -180,7 +205,6 @@ router.post('/api/apps/:appName/delete', isAuthenticated, async (ctx) => {
             'error':  err
         }
     }
-    console.log(err)
 });
 
 router.post('/api/deploy', isAuthenticated, async (ctx) => {
@@ -195,11 +219,12 @@ router.post('/api/deploy', isAuthenticated, async (ctx) => {
             watch: watch ? true : false, // Convertir a booleano
             mode: modeType === "1" ? "fork" : "cluster", // Definimos el modo basado en el valor seleccionado
             namespace: namespace || '',
-        };
-        console.log(appConfig);
+        }
 
         // Llamamos a la función deployApp para desplegar la aplicación
         const apps = await deployApp(appConfig);
+
+        console.log(appConfig);
 
         // Verificamos si se obtuvo algún resultado
         if (Array.isArray(apps) && apps.length > 0) {
@@ -213,7 +238,6 @@ router.post('/api/deploy', isAuthenticated, async (ctx) => {
             success: false // Si no se desplegó ninguna aplicación
         };
     } catch (err) {
-        console.error(err);
         return ctx.body = {
             success: false,
             error: err.message // Devuelve solo el mensaje de error, no el objeto completo

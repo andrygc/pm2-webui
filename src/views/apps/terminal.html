@@ -17,24 +17,33 @@
     </div>
 </div>
 <script>
-    const terminal = new Terminal({ 
-        cursorBlink: true
-    });
-    terminal.open(document.getElementById('terminal'));
-    terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\r\n\n');
+        const terminal = new Terminal({ 
+            cursorBlink: true
+        });
+        terminal.open(document.getElementById('terminal'));
+        terminal.write('\x1B[1;3;31mPM2 WebUI Terminal\x1B[0m\r\n\n');
 
-    // websocket listening on backend
-    const ws = new WebSocket('ws://localhost:8080');
+        const ws = new WebSocket('ws://localhost:8080');
 
-    ws.onopen = () => {
-        terminal.write('Connecting...\r\n');
-    };
+        ws.onopen = () => {
+            terminal.write('Connecting...\r\n');
+        };
 
-    ws.onmessage = (event) => {
-        terminal.write(event.data);
-    };
+        ws.onmessage = (event) => {
+            terminal.write(event.data);
+        };
 
-    terminal.onData((data) => {
-        ws.send(data);
-    });
-</script>
+        ws.onerror = (error) => {
+            terminal.write(`WebSocket error: ${error.message}\r\n`);
+        };
+
+        ws.onclose = () => {
+            terminal.write('Connection closed.\r\n');
+        };
+
+        terminal.onData((data) => {
+            if (ws.readyState === WebSocket.OPEN) {
+                ws.send(data);
+            }
+        });
+    </script>

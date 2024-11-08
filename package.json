@@ -1,6 +1,6 @@
 {
   "name": "pm2-webui",
-  "version": "2.0.6",
+  "version": "2.0.7",
   "description": "PM2 WebUI Dashboard",
   "main": "src/server.js",
   "scripts": {

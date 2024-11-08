@@ -1,5 +1,6 @@
 const pm2 = require('pm2');
 const { bytesToSize, timeSince } = require('./ux.helper')
+const Logger = require ('../../utils/logger.util')
 
 function listApps(){
     return new Promise((resolve, reject) => {
@@ -8,8 +9,15 @@ function listApps(){
                 reject(err)
             }
             pm2.list((err, apps) => {
+                if (apps.length > 0) {
+                    Logger.shell(apps.length + ` apps has been found`)
+                } else {
+                    Logger.shell(`Apps not found`)
+                }
+                
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 apps = apps.map((app) => {
@@ -35,8 +43,10 @@ function describeApp(appName){
                 reject(err)
             }
             pm2.describe(appName, (err, apps) => {
+                Logger.shell(`App ` + appName + ` details has been loaded`)
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 if(Array.isArray(apps) && apps.length > 0){
@@ -81,8 +91,10 @@ function reloadApp(process){
                 reject(err)
             }
             pm2.reload(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been reloaded`)
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 resolve(proc)
@@ -98,8 +110,10 @@ function restartApp(process){
                 reject(err)
             }
             pm2.restart(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been restarted`)
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 resolve(proc)
@@ -115,8 +129,29 @@ function stopApp(process){
                 reject(err)
             }
             pm2.stop(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been stopped`)
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
+                    reject(err)
+                }
+                resolve(proc)
+            })
+        })
+    })
+}
+
+function startApp(process){
+    return new Promise((resolve, reject) => {
+        pm2.connect((err) => {
+            if (err) {
+                reject(err)
+            }
+            pm2.start(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been started`)
+                pm2.disconnect()
+                if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 resolve(proc)
@@ -132,8 +167,10 @@ function deleteApp(process){
                 reject(err)
             }
             pm2.delete(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been deleted`)
                 pm2.disconnect()
                 if (err) {
+                    Logger.error(err.message)
                     reject(err)
                 }
                 resolve(proc)
@@ -150,8 +187,10 @@ function deployApp(process) {
             }
 
             pm2.start(process, (err, proc) => {
+                Logger.shell(`App ` + process + ` has been deployed`)
                 pm2.disconnect();
                 if (err) {
+                    Logger.error(err.message)
                     return reject(err);
                 }
                 resolve(proc);
@@ -166,6 +205,7 @@ module.exports = {
     reloadApp,
     restartApp,
     stopApp,
+    startApp,
     deleteApp,
     deployApp    
 }

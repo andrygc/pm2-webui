@@ -2,15 +2,15 @@ const prompts = require('prompts');
 const config = require('../config')
 const { createAdminUser } = require('../services/admin.service')
 
-const app_name_regex = /^(?=.{4,}$)[^]+$/
-const app_host_regex = /^(?=.{7,}$)[a-zA-Z0-9-]+$/
-const app_port_regex = /^(?=.{4,}$)[0-9]+$/
-const app_username_regex = /^(?=.{4,}$)[a-z0-9_]+$/
-const app_password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/
-const ws_port_regex = /^(?=.{4,}$)[0-9]+$/
-const ssh_host_regex = /^(?=.{8,}$)[a-z0-9]+$/
-const ssh_username_regex = /^(?=.{6,}$)[a-zA-Z0-9]+$/
-const ssh_password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9]).{4,}$/
+const app_name_regex = /^.{4,}$/; 
+const app_host_regex = /^(?=.{7,})(?:(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|(?:\d{1,3}\.){3}\d{1,3})$/;
+const app_port_regex = /^(?:[1-5][0-9]{0,4}|6[0-4][0-9]{4}|65[0-5][0-9]{3}|655[0-2][0-9]{2}|6553[0-5])$/;
+const app_username_regex = /^(?=.{4,})[a-z0-9_]+$/;
+const app_password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
+const ws_port_regex = /^(?:[1-5][0-9]{0,4}|6[0-4][0-9]{4}|65[0-5][0-9]{3}|655[0-2][0-9]{2}|6553[0-5])$/;
+const ssh_host_regex = /^(?=.{7,})(?:(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|(?:\d{1,3}\.){3}\d{1,3})$/;
+const ssh_username_regex = /^(?=.{6,})[a-zA-Z0-9_]+$/;
+const ssh_password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
 const questions = [
   {
@@ -55,7 +55,7 @@ const questions = [
       if(!value){
         return 'App Port is required'
       }
-      else if(value.length < 4){
+      else if(value.length < 2){
         return 'App Port must have mininum 4 characters'
       }
       else if(!app_port_regex.test(value)){
