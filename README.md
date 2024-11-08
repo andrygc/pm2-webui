@@ -6,6 +6,7 @@
     <img src="https://badgen.net/badge/pm2/5.4.2">
     <img src="https://badgen.net/badge/release-version/v2.0.7/green">
     <img src="https://badgen.net/badge/license/MIT/green">
+    <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
 
 
