@@ -1,6 +1,8 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
-    <img src="https://badgen.net/badge/version/v2.0.7)">
+    <br>
+    <img src="https://badgen.net/badge/version/v2.0.7">
+    <img src="https://badgen.net/badge/license/MIT/green">
 </p>
 
 
