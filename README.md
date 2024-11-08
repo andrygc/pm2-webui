@@ -1,5 +1,6 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
+    <img src="https://badgen.net/badge/version/v2.0.7)">
 </p>
 
 
