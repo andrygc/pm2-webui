@@ -43,6 +43,9 @@ PM2 WebUI es un panel de control en la web que monitorea y administra los proces
 - Información sobre el repositorio :white_check_mark:
 - Administración de variables de entorno :white_check_mark:
 
+> [!NOTE]
+> *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parámetros se configuran ejecutando el comando `npm run setup-system`* :wink:
+
 ---
 
 ### TECNOLOGIAS
@@ -71,7 +74,7 @@ npm install
 ```bash
 cp env.example .env
 ```
-3. Configurar variables del sistema
+3. Configurar parámetros del sistema
 ```bash
 npm run setup-system
 ```
@@ -83,11 +86,6 @@ npm start
 ```bash
 npm run start:dev
 ```
-
----
-
-> [!NOTE]
-> *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parametros se configuran ejecutando el comando `npm run setup-system`* :wink:
 
 ---
 
