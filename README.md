@@ -1,13 +1,33 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
+    <br>
+    <img src="https://badgen.net/badge/release-version/v2.0.7">
+    <img src="https://badgen.net/badge/license/MIT/green">
+    <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
 
 
 # PM2 WebUI
-Alternativa opensource PM2 Plus
+Panel de Control Web PM2
 
 
-## CARACTERÍSTICAS
+### TABLA DE CONTENIDOS
+1. [Información general](#informacion-general)
+2. [Características](#caracteristicas)
+2. [Tecnologías](#tecnologias)
+2. [Despliegue](#despliegue)
+3. [Installation](#installation)
+3. [Sugerencias](#sugerencias)
+4. [Screenshots](#screenshots)
+4. [Licencia](#licencia)
+5. [Autor](#autor)
+5. [Enlaces del autor](#enlaces-del-autor)
+
+
+### INFORMACIÓN GENERAL
+PM2 WebUI es un panel de control en la web que monitorea y administra los procesos que se ejecuten con el administrador de procesos PM2 de NodeJS, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive**, modos **Claro/Oscuro**, la opción **multilenguaje* para seleccionar el idioma que sea d su preferencia.
+
+### CARACTERÍSTICAS
 - Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
@@ -20,7 +40,13 @@ Alternativa opensource PM2 Plus
 - Administración de variables de entorno :white_check_mark:
 
 
-## DESPLIEGUE
+### TECNOLOGÍAS
+- ![nodejs](https://badgen.net/badge/node-js/18.19.0/green)
+- ![npm](https://badgen.net/badge/npm/10.2.4/green)
+- ![pm2](https://badgen.net/badge/pm2/5.4.2/green)
+- ![tabler](https://badgen.net/badge/tabler/1.0.0-beta20/green)
+
+### DESPLIEGUE
 1. Clonar el repositorio
 ```bash
 git clone https://github.com/andrygc/pm2-webui.git
@@ -29,21 +55,28 @@ git clone https://github.com/andrygc/pm2-webui.git
 ```bash
 cd pm2-webui
 ```
-3. Instalar las dependencias
+
+
+### INSTALACIÓN
+1. Instalar las dependencias
 ```bash
 npm install
 ```
-4. Crear el archivo `.env`
+2. Crear el archivo `.env`
 ```bash
 cp env.example .env
 ```
-5. Configurar variables del sistema
+3. Configurar variables del sistema
 ```bash
 npm run setup-system
 ```
-6. Iniciar el proyecto
+4. Iniciar el proyecto
 ```bash
 npm start
+```
+5. Para uso en desarrollo
+```bash
+npm run start:dev
 ```
 
 
@@ -51,13 +84,7 @@ npm start
 > *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parametros se configuran ejecutando el comando `npm run setup-system`* :wink:
 
 
-## PARA USO EN DESARROLLO
-```bash
-npm run start:dev
-```
-
-
-## SUGERENCIAS
+### SUGERENCIAS
 - [ ] Agregar soporte para rutas relativas
 - [ ] Utilice fs-extra para operaciones del sistema de archivos
 - [ ] Utilice [jsonfile](https://www.npmjs.com/package/jsonfile) para la gestión de configuración
@@ -67,7 +94,7 @@ npm run start:dev
 - [ ] Agregar proveedor de Docker
 
 
-## SCREENSHOTS
+### SCREENSHOTS
 ![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
 ![PM2 Webui Dashboard Dark](/screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
 ![PM2 Webui App Dark](/screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
@@ -76,15 +103,15 @@ npm run start:dev
 ![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
 
-## LICENCIA
+### LICENCIA
 [MIT Copyright (c) 2024 Andry Noilien Guzmán Cardoza](https://github.com/andrygc/pm2-webui/blob/main/LICENSE)
 
 
-## AUTOR
+### AUTOR
 - [@andrygc](https://www.github.com/andrygc)
 
 
-## 🔗 ENLACES DEL AUTOR
+### 🔗 ENLACES DEL AUTOR
 [![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/andrynoilien)
 [![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/andrycardoza)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andry-cardoza)
