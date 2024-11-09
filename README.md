@@ -8,7 +8,7 @@
 
 
 # PM2 WebUI
-Panel de Control Web PM2
+Panel de Control desde la Web
 
 ---
 
