@@ -3,7 +3,9 @@
 </p>
 
 <p align="center">
-    ![release-version](https://badgen.net/badge/release-version/v2.0.7/blue) ![license](https://badgen.net/badge/license/MIT/blue) ![starred](https://badgen.net/badge/starred/3/yellow)
+    ![release-version](https://badgen.net/badge/release-version/v2.0.7/blue)
+    ![license](https://badgen.net/badge/license/MIT/blue)
+    ![starred](https://badgen.net/badge/starred/3/yellow)
 </p>
 
 
