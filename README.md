@@ -16,14 +16,14 @@ Panel de Control Web PM2
 ### TABLA DE CONTENIDOS
 1. [Información general](#informacion-general)
 2. [Características](#caracteristicas)
-2. [Tecnologías](#tecnologias)
-2. [Despliegue](#despliegue)
-3. [Installation](#installation)
-3. [Sugerencias](#sugerencias)
-4. [Screenshots](#screenshots)
-4. [Licencia](#licencia)
-5. [Autor](#autor)
-5. [Enlaces del autor](#enlaces-del-autor)
+3. [Tecnologías](#tecnologias)
+4. [Despliegue](#despliegue)
+5. [Installation](#installation)
+6. [Sugerencias](#sugerencias)
+7. [Screenshots](#screenshots)
+8. [Licencia](#licencia)
+9. [Autor](#autor)
+10. [Enlaces del autor](#enlaces-del-autor)
 
 ---
 
