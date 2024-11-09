@@ -27,12 +27,12 @@ Panel de Control Web PM2
 
 ---
 
-### INFORMACIÓN GENERAL
+### INFORMACION GENERAL
 PM2 WebUI es un panel de control en la web que monitorea y administra los procesos que se ejecuten con el administrador de procesos PM2 de NodeJS, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive**, modos **Claro/Oscuro**, la opción **multilenguaje* para seleccionar el idioma que sea d su preferencia.
 
 ---
 
-### CARACTERÍSTICAS
+### CARACTERISTICAS
 - Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
@@ -46,7 +46,7 @@ PM2 WebUI es un panel de control en la web que monitorea y administra los proces
 
 ---
 
-### TECNOLOGÍAS
+### TECNOLOGIAS
 - ![nodejs](https://badgen.net/badge/node-js/18.19.0/green)
 - ![npm](https://badgen.net/badge/npm/10.2.4/green)
 - ![pm2](https://badgen.net/badge/pm2/5.4.2/green)
@@ -66,7 +66,7 @@ cd pm2-webui
 
 ---
 
-### INSTALACIÓN
+### INSTALACION
 1. Instalar las dependencias
 ```bash
 npm install
