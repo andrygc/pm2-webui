@@ -1,9 +1,8 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
     <br>
-    <img src="https://badgen.net/badge/release-version/v2.0.7">
-    <img src="https://badgen.net/badge/release-version/v2.0.7/green">
-    <img src="https://badgen.net/badge/license/MIT/green">
+    <img src="https://badgen.net/badge/release-version/v2.0.7/blue">
+    <img src="https://badgen.net/badge/license/MIT/blue">
     <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
 
