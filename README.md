@@ -18,7 +18,7 @@ Panel de Control Web PM2
 2. [Características](#caracteristicas)
 3. [Tecnologías](#tecnologias)
 4. [Despliegue](#despliegue)
-5. [Installation](#installation)
+5. [Installation](#instalacion)
 6. [Sugerencias](#sugerencias)
 7. [Screenshots](#screenshots)
 8. [Licencia](#licencia)
