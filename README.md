@@ -1,11 +1,8 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
     <br>
-<<<<<<< HEAD
     <img src="https://badgen.net/badge/release-version/v2.0.7">
-=======
     <img src="https://badgen.net/badge/release-version/v2.0.7/green">
->>>>>>> 832f71e1cc9998af1cd504106ca73a6dd8ea296e
     <img src="https://badgen.net/badge/license/MIT/green">
     <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
@@ -14,6 +11,7 @@
 # PM2 WebUI
 Panel de Control Web PM2
 
+---
 
 ### TABLA DE CONTENIDOS
 1. [Información general](#informacion-general)
@@ -27,9 +25,12 @@ Panel de Control Web PM2
 5. [Autor](#autor)
 5. [Enlaces del autor](#enlaces-del-autor)
 
+---
 
 ### INFORMACIÓN GENERAL
 PM2 WebUI es un panel de control en la web que monitorea y administra los procesos que se ejecuten con el administrador de procesos PM2 de NodeJS, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive**, modos **Claro/Oscuro**, la opción **multilenguaje* para seleccionar el idioma que sea d su preferencia.
+
+---
 
 ### CARACTERÍSTICAS
 - Soporte para HTTPS :white_check_mark:
@@ -43,12 +44,15 @@ PM2 WebUI es un panel de control en la web que monitorea y administra los proces
 - Información sobre el repositorio :white_check_mark:
 - Administración de variables de entorno :white_check_mark:
 
+---
 
 ### TECNOLOGÍAS
 - ![nodejs](https://badgen.net/badge/node-js/18.19.0/green)
 - ![npm](https://badgen.net/badge/npm/10.2.4/green)
 - ![pm2](https://badgen.net/badge/pm2/5.4.2/green)
 - ![tabler](https://badgen.net/badge/tabler/1.0.0-beta20/green)
+
+---
 
 ### DESPLIEGUE
 1. Clonar el repositorio
@@ -60,6 +64,7 @@ git clone https://github.com/andrygc/pm2-webui.git
 cd pm2-webui
 ```
 
+---
 
 ### INSTALACIÓN
 1. Instalar las dependencias
@@ -83,10 +88,12 @@ npm start
 npm run start:dev
 ```
 
+---
 
 > [!NOTE]
 > *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parametros se configuran ejecutando el comando `npm run setup-system`* :wink:
 
+---
 
 ### SUGERENCIAS
 - [ ] Agregar soporte para rutas relativas
@@ -97,6 +104,7 @@ npm run start:dev
 - [ ] Agregar registros en tiempo real
 - [ ] Agregar proveedor de Docker
 
+---
 
 ### SCREENSHOTS
 ![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
@@ -106,14 +114,17 @@ npm run start:dev
 ![PM2 Webui Dashboard Light](/screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
 ![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
+---
 
 ### LICENCIA
 [MIT Copyright (c) 2024 Andry Noilien Guzmán Cardoza](https://github.com/andrygc/pm2-webui/blob/main/LICENSE)
 
+---
 
 ### AUTOR
 - [@andrygc](https://www.github.com/andrygc)
 
+---
 
 ### 🔗 ENLACES DEL AUTOR
 [![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/andrynoilien)
@@ -122,4 +133,3 @@ npm run start:dev
 [![twitter](https://img.shields.io/badge/twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/@andrycardoza)
 [![youtube](https://img.shields.io/badge/YouTube-FF0000?style=for-the-badge&logo=youtube&logoColor=white)](https://youtube.com/@andrycardoza)
 [![telegram](https://img.shields.io/badge/Telegram-2CA5E0?style=for-the-badge&logo=telegram&logoColor=white)](https://t.me/andry_cardoza)
-
