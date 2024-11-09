@@ -27,7 +27,7 @@ Panel de Control Web PM2
 ---
 
 ### INFORMACION GENERAL
-PM2 WebUI es un panel de control en la web que monitorea y administra los procesos que se ejecuten con el administrador de procesos PM2 de NodeJS, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive**, modos **Claro/Oscuro**, la opción **multilenguaje* para seleccionar el idioma que sea d su preferencia.
+PM2 WebUI es un panel de control en la web que monitorea y administra los procesos que se ejecuten con el administrador de procesos PM2 de NodeJS, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive** gracias a la libreria Tabler, modos **Claro/Oscuro**, la opción **multilenguaje* para seleccionar el idioma que sea de su preferencia.
 
 ---
 
@@ -46,10 +46,7 @@ PM2 WebUI es un panel de control en la web que monitorea y administra los proces
 ---
 
 ### TECNOLOGIAS
-- ![nodejs](https://badgen.net/badge/node-js/18.19.0/green)
-- ![npm](https://badgen.net/badge/npm/10.2.4/green)
-- ![pm2](https://badgen.net/badge/pm2/5.4.2/green)
-- ![tabler](https://badgen.net/badge/tabler/1.0.0-beta20/green)
+- ![nodejs](https://badgen.net/badge/node-js/18.19.0/green) ![npm](https://badgen.net/badge/npm/10.2.4/green) ![pm2](https://badgen.net/badge/pm2/5.4.2/green) ![koa](https://badgen.net/badge/koa/2.13.1/green) ![websocket](https://badgen.net/badge/websocket/8.18.0/green) ![tabler](https://badgen.net/badge/tabler/1.0.0-beta20/green) ![xterm](https://badgen.net/badge/xterm/4.8.0/green)
 
 ---
 
