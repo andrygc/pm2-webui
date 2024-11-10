@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="./src/public/dist/images/app/logo-pm2-webui.png">
+    <img src="./src/public/dist/images/app/logo-pm2-webui.png" height="130">
 </p>
 
 <p align="center">
