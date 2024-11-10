@@ -1,8 +1,9 @@
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
+    ![PM2 WebUI Logo](./src/public/dist/images/app/logo.png)
 </p>
 
-![PM2 WebUI Logo](./src/public/dist/images/app/logo.png)
+
 
 <p align="center">
     <img src="https://badgen.net/badge/release-version/v2.0.7/blue">
