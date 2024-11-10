@@ -1,4 +1,3 @@
-![PM2 WebUI Logo](./src/public/dist/images/app/logo.png)
 <p align="center">
     <img src="./src/public/dist/images/app/logo.png" height="130">
 </p>
