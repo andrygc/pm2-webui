@@ -35,7 +35,7 @@ Panel de Control Open Source
 
 ### CARACTERISTICAS
 1. **Backend:**
-- Soporte para HTTPS :white_check_mark:
+* Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
 - Descripción detallada de los procesos :white_check_mark:
