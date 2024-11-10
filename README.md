@@ -1,19 +1,20 @@
 <p align="center">
-    <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
-    <br>
+    <img src="./src/public/dist/images/app/logo-pm2-webui.png">
+</p>
+
+<p align="center">
     <img src="https://badgen.net/badge/release-version/v2.0.7/blue">
     <img src="https://badgen.net/badge/license/MIT/blue">
     <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
 
-
 # PM2 WebUI
-Panel de Control desde la Web
+Panel de Control Web Open Source
 
 ---
 
 ### TABLA DE CONTENIDOS
-1. [Información general](#informacion-general)
+1. [Información General](#informacion-general)
 2. [Características](#caracteristicas)
 3. [Tecnologías](#tecnologias)
 4. [Despliegue](#despliegue)
@@ -22,29 +23,30 @@ Panel de Control desde la Web
 7. [Screenshots](#screenshots)
 8. [Licencia](#licencia)
 9. [Autor](#autor)
-10. [Enlaces del autor](#enlaces-del-autor)
+10. [Enlaces del Autor](#enlaces-del-autor)
 
 ---
 
 ### INFORMACION GENERAL
-**PM2 WebUI** es un panel de control en la web para monitorear y administrar los procesos haciendo uso de la API javascript de PM2, tiene la posibilidad de interactuar _(iniciar, recargar, reiniciar, detener, eliminar y desplegar)_ con cada uno de los procesos, cuenta con una terminal integrada para realizar tareas administrativas directamente en el servidor usando una conexión SSH, además muestra los detalles de cada uno de los procesos al entrar en él. A nivel de interfaz de usuario cuenta con un diseño **responsive** gracias a la librería Tabler, modos Claro/Oscuro, la opción multilenguaje con varios idiomas.
+**PM2 WebUI** es un panel de control open source desde la web para monitorear y administrar procesos haciendo uso de la API javascript de PM2.  En el caso de la administración tiene la posibilidad de interactuar _(iniciar, reiniciar, recargar, detener, eliminar y desplegar)_ con cada uno de los procesos. En el caso del monitoreo al acceder a los procesos muestra los detalles específicos _(id, pid, version, modo , nombre de espacio, uso de cpu, uso de memoria, reinicios, tiempo de actividad, directorio del proceso, directorio del script, intérpreter, git url, git branch, git commit, git comment)_, así como el registro de salida y errores de dicho proceso. Además cuenta con una terminal web integrada para realizar tareas administrativas directamente el servidor.
 
 ---
 
 ### CARACTERISTICAS
+**1. Backend:**
 - Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
+- Descripción detallada de los procesos :white_check_mark:
+- Vista de logs de cada proceso :white_check_mark:
+- Información sobre repositorio GitHub _(si es un proyecto clonado)_ :white_check_mark:
 - Despliegue de nuevos procesos :white_check_mark:
-- Vista de logs :white_check_mark:
-- Terminal web (cliente ssh) :white_check_mark:
-- Interfaz responsiva :white_check_mark:
-- Múltiple idiomas :white_check_mark:
-- Información sobre el repositorio :white_check_mark:
-- Administración de variables de entorno :white_check_mark:
+- Cliente SSH sobre WebSocket :white_check_mark:
 
-> [!NOTE]
-> *Para el uso de la terminal se ejecuta un websocket con un cliente ssh, todos los parámetros se configuran ejecutando el comando `npm run setup-system`* :wink:
+**2. Frontend:**
+- Interfaz moderna y responsiva _(librería **Tabler**)_ :white_check_mark:
+- Múltiples idiomas :white_check_mark:
+- Xterm _(para la terminal integrada)_ :white_check_mark:
 
 ---
 
@@ -66,13 +68,13 @@ cd pm2-webui
 ---
 
 ### INSTALACION
-1. Instalar las dependencias
-```bash
-npm install
-```
-2. Crear el archivo `.env`
+1. Crear el archivo `.env`
 ```bash
 cp env.example .env
+```
+2. Instalar las dependencias
+```bash
+npm install
 ```
 3. Configurar parámetros del sistema
 ```bash
@@ -86,6 +88,9 @@ npm start
 ```bash
 npm run start:dev
 ```
+
+> [!NOTE]
+> _Para el uso de la terminal se ejecuta un websocket con un cliente ssh, en el archivo **terminal.html** debe establecer la constante **wsUrl** con la url del websocket_ :wink:
 
 ---
 
@@ -101,12 +106,12 @@ npm run start:dev
 ---
 
 ### SCREENSHOTS
-![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
-![PM2 Webui Dashboard Dark](/screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
-![PM2 Webui App Dark](/screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
-![PM2 Webui Login Light](/screenshots/desktop-login-light.png?raw=true "PM2 WebUI Login Light")
-![PM2 Webui Dashboard Light](/screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
-![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
+![PM2 Webui Login Dark](./screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
+![PM2 Webui Dashboard Dark](./screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
+![PM2 Webui App Dark](./screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
+![PM2 Webui Login Light](./screenshots/desktop-login-light.png?raw=true "PM2 WebUI Login Light")
+![PM2 Webui Dashboard Light](./screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
+![PM2 Webui App Light](./screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
 ---
 
@@ -120,7 +125,7 @@ npm run start:dev
 
 ---
 
-### 🔗 ENLACES DEL AUTOR
+### ENLACES DEL AUTOR
 [![facebook](https://img.shields.io/badge/Facebook-1877F2?style=for-the-badge&logo=facebook&logoColor=white)](https://facebook.com/andrynoilien)
 [![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://www.instagram.com/andrycardoza)
 [![linkedin](https://img.shields.io/badge/linkedin-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/andry-cardoza)
