@@ -1,9 +1,7 @@
+![PM2 WebUI Logo](./src/public/dist/images/app/logo.png)
 <p align="center">
     <img src="https://pm2.io/assets/pm2-logo-1.png" height="130">
-    ![PM2 WebUI Logo](./src/public/dist/images/app/logo.png)
 </p>
-
-
 
 <p align="center">
     <img src="https://badgen.net/badge/release-version/v2.0.7/blue">
@@ -37,7 +35,7 @@ Panel de Control Open Source
 ---
 
 ### CARACTERISTICAS
-#### **Backend:**
+1. **Backend:**
 - Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
@@ -47,7 +45,7 @@ Panel de Control Open Source
 - Despliegue de nuevos procesos :white_check_mark:
 - Cliente SSH sobre WebSocket :white_check_mark:
 
-#### **Frontend:**
+2. **Frontend:**
 - Interfaz moderna y responsiva _(librería **Tabler**)_ :white_check_mark:
 - Múltiples idiomas :white_check_mark:
 - Xterm _(para la terminal integrada)_ :white_check_mark:
@@ -110,12 +108,12 @@ npm run start:dev
 ---
 
 ### SCREENSHOTS
-![PM2 Webui Login Dark](/screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
-![PM2 Webui Dashboard Dark](/screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
-![PM2 Webui App Dark](/screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
-![PM2 Webui Login Light](/screenshots/desktop-login-light.png?raw=true "PM2 WebUI Login Light")
-![PM2 Webui Dashboard Light](/screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
-![PM2 Webui App Light](/screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
+![PM2 Webui Login Dark](./screenshots/desktop-login-dark.png?raw=true "PM2 WebUI Login Dark")
+![PM2 Webui Dashboard Dark](./screenshots/desktop-dashboard-dark.png?raw=true "PM2 WebUI Dashboard Dark")
+![PM2 Webui App Dark](./screenshots/desktop-app-dark.png?raw=true "PM2 WebUI App Dark")
+![PM2 Webui Login Light](./screenshots/desktop-login-light.png?raw=true "PM2 WebUI Login Light")
+![PM2 Webui Dashboard Light](./screenshots/desktop-dashboard-light.png?raw=true "PM2 WebUI Dashboard Light")
+![PM2 Webui App Light](./screenshots/desktop-app-light.png?raw=true "PM2 WebUI App Light")
 
 ---
 
