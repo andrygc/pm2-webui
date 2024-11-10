@@ -8,9 +8,8 @@
     <img src="https://badgen.net/badge/starred/3/yellow">
 </p>
 
-
 # PM2 WebUI
-Panel de Control Open Source
+Panel de Control Web Open Source
 
 ---
 
@@ -34,8 +33,8 @@ Panel de Control Open Source
 ---
 
 ### CARACTERISTICAS
-1. **Backend:**
-* Soporte para HTTPS :white_check_mark:
+**1. Backend:**
+- Soporte para HTTPS :white_check_mark:
 - Login seguro :white_check_mark:
 - Administración de los procesos :white_check_mark:
 - Descripción detallada de los procesos :white_check_mark:
@@ -44,7 +43,7 @@ Panel de Control Open Source
 - Despliegue de nuevos procesos :white_check_mark:
 - Cliente SSH sobre WebSocket :white_check_mark:
 
-2. **Frontend:**
+**2. Frontend:**
 - Interfaz moderna y responsiva _(librería **Tabler**)_ :white_check_mark:
 - Múltiples idiomas :white_check_mark:
 - Xterm _(para la terminal integrada)_ :white_check_mark:
