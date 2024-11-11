@@ -28,7 +28,7 @@ Panel de Control Web Open Source
 ---
 
 ### INFORMACION GENERAL
-**PM2 WebUI** es un panel de control open source desde la web para monitorear y administrar procesos haciendo uso de la API javascript de PM2.  En el caso de la administración tiene la posibilidad de interactuar _(iniciar, reiniciar, recargar, detener, eliminar y desplegar)_ con cada uno de los procesos. En el caso del monitoreo al acceder a los procesos muestra los detalles específicos _(id, pid, version, modo , nombre de espacio, uso de cpu, uso de memoria, reinicios, tiempo de actividad, directorio del proceso, directorio del script, intérpreter, git url, git branch, git commit, git comment)_, así como el registro de salida y errores de dicho proceso. Además cuenta con una terminal web integrada para realizar tareas administrativas directamente el servidor.
+**PM2 WebUI** es un panel de control open source desde la web para monitorear y administrar procesos haciendo uso de la API javascript de PM2.  En el caso de la administración tiene la posibilidad de interactuar _(iniciar, reiniciar, recargar, detener y eliminar)_ con cada uno de los procesos, así como la opción de desplegar nuevos procesos. En el caso del monitoreo al acceder a los procesos muestra los detalles específicos _(id, pid, version, modo , nombre de espacio, uso de cpu, uso de memoria, reinicios, tiempo de actividad, directorio del proceso, directorio del script, intérpreter, git url, git branch, git commit, git comment)_, así como el registro de salida y errores de dicho proceso. Además cuenta con una terminal web integrada para realizar tareas administrativas directamente el servidor.
 
 ---
 
