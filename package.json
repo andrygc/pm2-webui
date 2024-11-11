@@ -5,7 +5,8 @@
   "main": "src/server.js",
   "scripts": {
     "test": "node src/bin/test",
-    "start": "pm2 start src/server.js --name pm2-webui-service --namespace monitoring",
+    "start": "node src/server.js",
+    "start:pm2": "pm2 start src/server.js --name pm2-webui-service --namespace monitoring",
     "start:dev": "npx nodemon",
     "setup-system": "node src/bin/setup-system"
   },

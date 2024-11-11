@@ -83,10 +83,15 @@ npm run setup-system
 ```
 4. Iniciar el proyecto
 ```bash
+# Iniciar servidor directamente
 npm start
+
+# Iniciar servidor directamente con pm2
+npm run start:pm2
 ```
-5. Para uso en desarrollo
+5. Para uso en desarollo
 ```bash
+# Iniciar en modo desarrollo
 npm run start:dev
 ```
 
