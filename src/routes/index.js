@@ -1,13 +1,11 @@
-const config = require('../config')
 const RateLimit = require('koa2-ratelimit').RateLimit;
 const router = require('@koa/router')();
 const Logger = require('../utils/logger.util');
 const { listApps, describeApp, reloadApp, restartApp, stopApp, startApp, deleteApp, deployApp } = require('../providers/pm2/api')
-const { validateAdminUser } = require('../services/admin.service')
 const { readLogsReverse } = require('../utils/read-logs.util')
 const { getCurrentGitBranch, getCurrentGitCommit, getCurrentGitComment, getCurrentGitUrl, getCurrentGitUsername, getCurrentGitUserEmail } = require('../utils/git.util')
 const { getEnvFileContent } = require('../utils/env.util')
-const { isAuthenticated, checkAuthentication }= require('../middlewares/auth')
+const { isAuthenticated, checkAuthentication, validateAdminUser }= require('../middlewares/auth');
 const AnsiConverter = require('ansi-to-html');
 const ansiConvert = new AnsiConverter();
 
@@ -37,7 +35,13 @@ router.post('/login', loginRateLimiter, checkAuthentication, async (ctx) => {
         Logger.error(err.message);
         return await ctx.render('auth/login', {layout : false, login: { username, password, error: err.message }})
     }
-})
+});
+
+router.get('/logout', (ctx)=>{
+    ctx.session = null;
+    Logger.shell(`Admin user logout`);
+    return ctx.redirect('/login')
+});
 
 router.get('/apps', isAuthenticated, async (ctx) => {
     const apps =  await listApps();
@@ -49,12 +53,6 @@ router.get('/apps', isAuthenticated, async (ctx) => {
 router.get('/terminal', isAuthenticated, async (ctx) => {
     return await ctx.render('apps/terminal');
 });
-
-router.get('/logout', (ctx)=>{
-    ctx.session = null;
-    Logger.shell(`Admin user logout`);
-    return ctx.redirect('/login')
-})
 
 router.get('/apps/:appName', isAuthenticated, async (ctx) => {
     const { appName } = ctx.params
@@ -88,7 +86,7 @@ router.get('/apps/:appName', isAuthenticated, async (ctx) => {
 
 router.get('/api/apps/:appName/logs/:logType', isAuthenticated, async (ctx) => {
     const { appName, logType } = ctx.params
-    const { linePerRequest, nextKey } = ctx.query
+    const { nextKey } = ctx.query
     if(logType !== 'stdout' && logType !== 'stderr'){
         return ctx.body = {
             'error': 'Log Type must be stdout or stderr'

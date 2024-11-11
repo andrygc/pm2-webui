@@ -13,7 +13,7 @@ function startTerminalOverWebsocket() {
 	    const conn = new Client();
 	    conn.on('ready', () => {
 	        ws.send('Connected successfully!!\r\n\n');
-	        Logger.shell(`Terminal is connected to ws://${config.APP_HOST}:${config.WS_PORT}`);
+	        Logger.shell(`Terminal is connected to websocket on port ${config.WS_PORT}`);
 	        conn.shell((err, stream) => {
 	            if (err) {
 	            	Logger.fatal(err.message);

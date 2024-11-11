@@ -4,7 +4,7 @@
   "description": "PM2 WebUI Dashboard",
   "main": "src/server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "node src/bin/test",
     "start": "pm2 start src/server.js --name pm2-webui-service --namespace monitoring",
     "start:dev": "npx nodemon",
     "setup-system": "node src/bin/setup-system"
@@ -35,7 +35,7 @@
     "url": "https://github.com/andrygc/pm2-webui"
   },
   "bin": {
-    "pm2-webui": "./src/server.js"
+    "pm2-webui": "src/server.js"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"

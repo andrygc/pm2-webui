@@ -1,6 +1,5 @@
 const prompts = require('prompts');
-const { setSystemParams } = require('../services/system.service');
-const Logger = require('../utils/logger.util');
+const bcrypt = require('bcryptjs'); // Importamos bcryptjs
 
 const app_name_regex = /^.{4,}$/; 
 const app_host_regex = /^(?=.{7,})(?:(?:[a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}|(?:\d{1,3}\.){3}\d{1,3})$/;
@@ -13,7 +12,7 @@ const ssh_port_regex = /^(?:[1-5][0-9]{0,4}|6[0-4][0-9]{4}|65[0-5][0-9]{3}|655[0
 const ssh_username_regex = /^(?=.{6,})[a-zA-Z0-9_]+$/;
 const ssh_password_regex = /^(?=.*\d)(?=.*[!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
 
-Logger.info(`Welcome!! Please, complete the next questions for setup the application.`);
+console.log(`Welcome!! This is a test from setup system.`);
 
 const questions = [
   {
@@ -195,12 +194,21 @@ const questions = [
 ];
 
 const onCancel = prompt => {
-  console.log('Bye Bye!');
+  console.log('Test canceled!');
 }
 
 (async () => {
   const response = await prompts(questions, { onCancel });
   if(response.agreed){
-    setSystemParams(response.app_name, response.app_host, response.app_port, response.app_username, response.app_password, response.ws_port, response.ssh_host, response.ssh_port, response.ssh_username, response.ssh_password)
+    console.log('APP_NAME=' + response.app_name);
+    console.log('APP_HOST=' + response.app_host);
+    console.log('APP_PORT=' + response.app_port);
+    console.log('APP_USERNAME=' + response.app_username);
+    console.log('APP_PASSWORD=' + response.app_password);
+    console.log('WS_PORT=' + response.ws_port);
+    console.log('SSH_HOST=' + response.ssh_host);
+    console.log('SSH_PORT=' + response.ssh_port);
+    console.log('SSH_USERNAME=' + response.ssh_username);
+    console.log('SSH_PASSWORD=' + response.ssh_password);
   }
 })();

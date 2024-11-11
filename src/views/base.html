@@ -516,22 +516,17 @@
     <script src="/dist/js/translate.js">
     </script>
     <script>
-    // Función para manejar el preloader
-    function handlePreloader() {
+    function handlePreloader() {// Función para manejar el preloader
         function hidePreloader() {
             document.getElementById('preloader').style.display = 'none';
             document.getElementById('base').style.display = 'flex';
         }
 
-        // Esperar 3 segundos antes de ocultar el preloader
-        window.onload = function() {
+        window.onload = function() {// Esperar 3 segundos antes de ocultar el preloader
             setTimeout(hidePreloader, 3000);
         }
     }
-
-    // Llamar a la función para manejar el preloader
-    handlePreloader();
+    handlePreloader(); // Llamar a la función para manejar el preloader
     </script>
 </body>
-
 </html>
