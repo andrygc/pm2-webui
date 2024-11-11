@@ -45,6 +45,7 @@ Panel de Control Web Open Source
 
 **2. Frontend:**
 - Interfaz moderna y responsiva _(librería **Tabler**)_ :white_check_mark:
+- Modo Claro/Oscuro :white_check_mark:
 - Múltiples idiomas :white_check_mark:
 - Xterm _(para la terminal integrada)_ :white_check_mark:
 
